@@ -1,0 +1,326 @@
+//================== BT lý thuyết =====================
+1. mảng là gì ? là tập hợp các phần tử có vị trí nằm liên tiếp nhau trong bộ nhớ máy tính.
+2. số lượng phần tử tối đa của mảng là giá trị như thế nào ? là giá trị cho chúng ta biết mảng có thể chứa tối đa được bao nhiêu phần tử (vd: Biến), để từ đó thực hiện thao tác với mảng một cách hợp lý, nếu sử dụng nhiều hơn giá trị đó chương trình sẽ thông báo lỗi.
+3. Mảng tĩnh khác gì so với mảng động ? Khóa mình chưa học đến mảng động đâu ạ. Theo em đã tìm hiểu trước đó thì sự khác nhau nằm ở cấp phát và giải phóng bộ nhớ (Mảng tĩnh sẽ tự động cấp phát và giải phóng vùng nhớ, còn mảng động thì mình cần phải sử dụng những hàm như calloc, malloc, realloc trong C ; delete trong C++).
+4. Trình bày CHI TIÊT chương trình sẽ xử lý gì khi gặp lệnh:   int a[10]; hệ điều hành sẽ cấp phát 1 mảng gồm 10 vùng nhớ ngẫu nhiên nằm liên tiếp trong bộ nhớ với độ lớn mỗi vùng nhớ là 4 byte, dùng để chứa dữ liệu kiểu số nguyên. Với tên đại diện là a.
+5. Trình bày ý nghĩa lệnh:  int a[7]; khai báo mảng a gồm 7 phần tử với kiểu dữ liệu số nguyên        
+và lệnh   a[0];  khai báo mảng a có không phân tử. Hay còn gọi là mảng rỗng. ( chương trình sẽ thông báo lỗi vì chưa khai báo kiểu dữ liệu cho mảng và cũng thông báo lỗi vì số phần tử trong mảng phải lớn hơn 0)
+6. Giá trị của các phần tử mảng sau khi vừa khai báo là gì ? là dữ liệu mà mỗi phần tử trong mảng đang quản lý.
+7. Trình bày công thức tính kích thước mảng: float a[n]? độ lớn của float là 4 byte => mỗi vùng nhớ trong mảng là 4 byte => n vùng nhớ trong mảng có độ lớn là (n x 4) byte.
+//================== BT =====================
+1. Viết chương trình xuất ra các phần tử là số nguyên tố trong mảng
+#include <iostream>
+using namespace std;
+#define MAX 100
+void Nhap_Mang(int a[], int n);
+void Xuat_Mang_SNT(int a[], int n);
+bool KT_SNT(int x);
+int main()
+{
+	int a[MAX] = {};
+	int n = 0;
+	do
+	{
+		cout << "Nhap so luong phan tu tu ban phim: "; cin >> n;
+	} while (n <= 0 || n > MAX);
+	Nhap_Mang(a, n);
+	Xuat_Mang_SNT(a, n);
+
+	return 0;
+}
+void Nhap_Mang(int a[], int n)
+{
+	cout << "\n\t\t==========Nhap Mang==========";
+	for (int i = 0; i < n; i++)
+	{
+		cout << "\nNhap phan tu thu " << i + 1 << " :"; cin >> a[i];
+	}
+}
+bool KT_SNT(int x)
+{
+	if (x < 2)
+	{
+		return false;
+	}
+	else if (x == 2)
+	{
+		return true;
+	}
+	else if (x > 2)
+	{
+		for (int i = 2; i < x; i++)
+		{
+			if (x % i == 0)
+			{
+				return false;
+			}
+			return true;
+		}
+	}
+}
+void Xuat_Mang_SNT(int a[], int n)
+{
+	cout << "\n\t\t===========Xuat Mang===========\n";
+	for (int i = 0; i < n; i++)
+	{
+		if (KT_SNT(a[i])==true)
+		{
+			cout << a[i] << " ";
+		}
+	}
+}
+2. Cho dãy số nguyên. Viết chương trình tìm giá trị lẻ cuối cùng trong mảng.
+#include <iostream>
+using namespace std;
+#define MAX 100
+void Nhap_Mang(int a[], int n);
+void Xuat_So_Le_Cuoi_Cung(int a[], int n);
+int main()
+{
+	int a[MAX] = {};
+	int n = 0;
+	do
+	{
+		cout << "Nhap n tu ban phim: "; cin >> n;
+	} while (n <= 0 || n > MAX);
+	Nhap_Mang(a, n);
+	Xuat_So_Le_Cuoi_Cung(a, n);
+	return 0;
+}
+void Nhap_Mang(int a[], int n)
+{
+	cout << "\n\t\t==========Nhap Mang==========";
+	for (int i = 0; i < n; i++)
+	{
+		cout << "\nNhap phan tu thu " << i + 1 << " :"; cin >> a[i];
+	}
+}
+void Xuat_So_Le_Cuoi_Cung(int a[], int n)
+{
+	int So_Le = 0;
+	for (int i = 0; i < n; i++)
+	{
+		if (a[i] % 2 != 0)
+		{
+			So_Le = a[i];
+		}
+	}
+	cout << "\nSo le cuoi cung la: " << So_Le;
+}
+3. Cho dãy số nguyên. Viết chương trình tìm đoạn [a, b] sao cho đoạn này chứa mọi giá trị trong mảng.
+#include <iostream>
+using namespace std;
+#define MAX 100
+void Nhap_Mang(int a[], int n);
+void Tim_Doan_AB(int a[], int n);
+int main()
+{
+	int a[MAX] = {};
+	int n = 0;
+	do
+	{
+		cout << "Nhap n tu ban phim: "; cin >> n;
+	} while (n <= 0 || n > MAX);
+	Nhap_Mang(a, n);
+	Tim_Doan_AB(a, n);
+	return 0;
+}
+void Nhap_Mang(int a[], int n)
+{
+	cout << "\n\t\t==========Nhap Mang==========";
+	for (int i = 0; i < n; i++)
+	{
+		cout << "\nNhap phan tu thu " << i + 1 << " :"; cin >> a[i];
+	}
+}
+void Tim_Doan_AB(int a[], int n)
+{
+	int Max = a[0]; int Min = a[0];
+	for (int i = 1; i < n; i++)
+	{
+		if (a[i] > Max)
+		{
+			Max = a[i];
+		}
+		else if (a[i] < Min)
+		{
+			Min = a[i];
+		}
+	}
+	cout << "\nDoan (A,B) can tim: (" << Min << "," << Max << ")";
+}
+4. Cho dãy số nguyên. Viết chương trình kiểm tra mảng có toàn dương hay không?
+#include <iostream>
+using namespace std;
+#define MAX 100
+void Nhap_Mang(int a[], int n);
+void KT_Toan_Duong(int a[], int n);
+int main()
+{
+	int a[MAX] = {};
+	int n = 0;
+	do
+	{
+		cout << "Nhap n tu ban phim: "; cin >> n;
+	} while (n <= 0 || n > MAX);
+	Nhap_Mang(a, n);
+	KT_Toan_Duong(a, n);
+	return 0;
+}
+void Nhap_Mang(int a[], int n)
+{
+	cout << "\n\t\t==========Nhap Mang==========";
+	for (int i = 0; i < n; i++)
+	{
+		cout << "\nNhap phan tu thu " << i + 1 << " :"; cin >> a[i];
+	}
+}
+void KT_Toan_Duong(int a[], int n)
+{
+	bool Kt = true;
+	for (int i = 0; i < n; i++)
+	{
+		if (a[i] <= 0)
+		{
+			Kt = false;
+			break;
+		}
+	}
+	if (Kt == true)
+	{
+		cout << "\nMang toan duong";
+	}
+	else
+	{
+		cout << "\nMang khong toan duong";
+
+	}
+}
+5. Cho dãy số nguyên. Viết chương trình kiểm tra mảng có tăng dần hay không?
+#include <iostream>
+using namespace std;
+#define MAX 100
+void Nhap_Mang(int a[], int n);
+void KT_Tang_Dan(int a[], int n);
+int main()
+{
+	int a[MAX] = {};
+	int n = 0;
+	do
+	{
+		cout << "Nhap n tu ban phim: "; cin >> n;
+	} while (n <= 0 || n > MAX);
+	Nhap_Mang(a, n);
+	KT_Tang_Dan(a, n);
+	return 0;
+}
+void Nhap_Mang(int a[], int n)
+{
+	cout << "\n\t\t==========Nhap Mang==========";
+	for (int i = 0; i < n; i++)
+	{
+		cout << "\nNhap phan tu thu " << i + 1 << " :"; cin >> a[i];
+	}
+}
+void KT_Tang_Dan(int a[], int n)
+{
+	bool kt = true;
+	for (int i = 0; i < n-1; i++)
+	{
+		if (a[i + 1] < a[i])
+		{
+			kt = false;
+			break;
+		}
+	}
+	if (kt == true)
+	{
+		cout << "\nMang tang dan";
+	}
+	else
+	{
+		cout << "\nMang khong tang dan";
+	}
+}
+6. Viết chương trình in ra các số siêu nguyên tố có trong mảng.
+
+/* Số siêu nguyên tố: à số mà khi bỏ 1 số tùy ý các chữ số bên phải của nó thì phần còn lại vẫn là 1 số nguyên tố
+vd: 2333 là một số siêu nguyên tố có 4 chữ số vì 233, 23, 2 cũng là các số nguyên tố.
+VD 16 số siêu nguyên tố có 4 chữ số:
+2333, 2339, 2393, 2399, 2939, 3119, 3137, 3733, 3739, 3797, 5939, 7193, 7331, 7333, 7393.
+#include <iostream>
+using namespace std;
+#define MAX 100
+void Nhap_Mang(int a[], int n);
+void Sieu_Nguyen_To(int a[], int n);
+bool KT_SNT(int x);
+bool check_SSNT(int x);
+int main()
+{
+	int a[MAX] = {};
+	int n = 0;
+	do
+	{
+		cout << "Nhap n tu ban phim: "; cin >> n;
+	} while (n <= 0 || n > MAX);
+	Nhap_Mang(a, n);
+	Sieu_Nguyen_To(a, n);
+	return 0;
+}
+void Nhap_Mang(int a[], int n)
+{
+	cout << "\n\t\t==========Nhap Mang==========";
+	for (int i = 0; i < n; i++)
+	{
+		cout << "\nNhap phan tu thu " << i + 1 << " :"; cin >> a[i];
+	}
+}
+bool KT_SNT(int x)
+{
+	if (x < 2)
+	{
+		return false;
+	}
+	else if (x == 2)
+	{
+		return true;
+	}
+	else if (x > 2)
+	{
+		for (int i = 2; i < x; i++)
+		{
+			if (x % i == 0)
+			{
+				return false;
+			}
+			return true;
+		}
+	}
+}
+bool check_SSNT(int x)
+{
+	int m = x;
+	while (m != 0)
+	{
+		if (KT_SNT(m % 10) == false)
+		{
+			return false;
+		}
+		else
+		{
+			m = m / 10;
+		}
+	}
+	return true;
+}
+void Sieu_Nguyen_To(int a[], int n)
+{
+	cout << "\nXuat so sieu nguyen to: ";
+	for (int i = 0; i < n; i++)
+	{
+		if (check_SSNT(a[i]) == true)
+		{
+			cout << a[i] << " ";
+		}
+	}
+}

@@ -1,0 +1,30 @@
+//====== Struct ==========
+
+int, float, char, bool
+string, vector
+
+=> struct:	kdl do lập trình viên tự định nghĩa	-> kdl cấu trúc (Lưu trữ nhiều kdl khác bên trong)
+
+	sv:
+
+	string ma_sv;
+	string ho_ten;
+	float diem;
+
+
+	Cú pháp định nghĩa:		struct <tên struct>
+				{
+					<kdl tp 1> <tên tp 1>;
+					<kdl tp 2> <tên tp 2>;
+					<kdl tp 3> <tên tp 3>;
+					...
+					<kdl tp n> <tên tp n>;
+				};
+//======= Nếu struct có tp là biến con trỏ ==============
+
+3 Lưu ý khi sử dụng struct mà có tp là biến con trỏ:
+
++ Cấp phát
++ Giải phóng
++ Tuyệt đối không được xài toán tử gán (Gán ngang hàng -> gán miền giá trị => Dùng chung).
+			Ta nên viết hàm gán -> gán lần lượt từng tp cho đến tp là biến con trỏ thì ta gán giá trị

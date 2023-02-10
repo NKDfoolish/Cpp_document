@@ -1,0 +1,68 @@
+#include <iostream>
+using namespace std;
+void nhap(int* p, int n);
+void xuat(int* p, int n);
+void cap_phat_lai(int* &p, int ncu, int nmoi);
+void them(int*& p, int& n, int vt, int x);
+
+void main()
+{
+
+	int n = 3;
+	int* p = new int[n];
+	nhap(p, n);
+	xuat(p, 10);
+
+	them(p, n, 2, 9);
+
+	xuat(p, 10);
+
+}
+void nhap(int* p, int n)
+{
+	cout << "\t\t===== Nhap ===" << endl;
+	for (int i = 0; i < n; i++)
+	{
+		cout << "Nhap pt thu " << i << ": "; cin >> p[i];
+	}
+}
+void xuat(int* p, int n)
+{
+	cout << "\t\t===== Xuat ===" << endl;
+	for(int i=0;i<n;i++)
+	{
+		cout << "PT thu " << i << " la: " << p[i] << endl;
+	}
+}
+//		int *p' = p,	Cùng miền giá trị nhưng khác địa chỉ
+
+void cap_phat_lai(int *&p,int ncu,int nmoi)
+{
+	//B1: Cho tạm giữ đc nhà cũ
+	int* tam = p;//NULL
+	//B2: Mua nhà mới
+	p = new int[nmoi];//Thay đổi miền giá trị
+
+	//B3: Dời đồ từ nhà cũ qua nhà mới
+	for (int i = 0; i < ncu; i++)
+	{
+		p[i] = tam[i];
+	}
+	//B4: Giải tỏa nhà cũ
+	if (tam != NULL)
+	{
+		delete tam;
+	}
+}
+void them(int* &p, int &n, int vt, int x)
+{
+	//B1: Nới rộng
+	cap_phat_lai(p, n, n + 1);//Tăng vùng nhớ(sl pt tối đa)		//Có thay đổi miền giá trị
+	//B2: Thêm
+	for (int i = n; i > vt; i--)
+	{
+		p[i] = p[i - 1];
+	}
+	p[vt] = x;
+	n++;//Tăng số pt hiện tại		//Có thay đổi giá trị
+}

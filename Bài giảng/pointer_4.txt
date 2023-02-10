@@ -1,0 +1,34 @@
+//========= LT =============
+1.	stdlib.h
+
+2.	
+void* malloc(int size);		Cấp phát 1 vùng nhớ lớn có kích thước size byte và trả về. Giá trị mặc định là rác
+=>	int *p = (int *)malloc(4);
+
+void* calloc(int count, int size);
+=>	int *p = (int *)calloc(5,4);
+
+void* realloc(void* pointer, int size);	//5*4
+
+		+ int *p = NULL;
+		p = (int *)realloc(p, 5*4);
+
+		+ int *p = (int *)realloc(NULL, 5*4);
+
+
+//========= Cấp phát mới ==============
+	Cấp phát vùng nhớ cho pointer nhưng mất data cũ.
+
+//======= Cơ chế realloc chuyên sâu ====
+	+ Nới rộng:	B1: Cấp phát vùng nhớ mới(Nhiều pt hơn)
+			B2: Sao chép dữ liệu từ vùng nhớ cũ sang vùng nhớ mới
+			B3: Giải phóng vùng nhớ cũ
+
+	+ Thu hẹp:	B1: Cấp phát vùng nhớ mới(ít pt hơn)
+			B2: Sao chép
+			B3: Giải phóng
+
+
+Giải phóng bên C:	free(p);
+
+	bên C++:	delete[] p;

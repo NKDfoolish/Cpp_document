@@ -1,0 +1,106 @@
+Chuyển data -> node
+
++ Thêm cuối
+	- Ds rỗng: 	đầu = cuối = p
+			
+	- Ds có 1 pt:	B1: lk pt ptail với pt cần thêm
+			      B2: cập nhật ptail
+
+	- Ds có n pt:	Tương tự TH: ds có 1 pt
+
+
++ Thêm đầu
++ Xóa đầu
+
+*+ Xóa cuối
+------------------------------------
+#include <iostream>
+using namespace std;
+
+struct node
+{
+	int data;
+	node* pnext;
+};
+typedef struct node node;
+
+typedef struct dslk {
+	node* phead = NULL;
+	node* ptail = NULL;
+}dslk;
+
+node* khoi_tao_node(int x);
+void them_cuoi(dslk& ds, int x);
+void xuat_ds(dslk ds);
+
+int main() {
+	dslk ds;
+
+	bool running = true;
+	while (running)
+	{
+		system("cls");
+		cout << "1. Them cuoi" << endl;
+		cout << "2. Xuat danh sach" << endl;
+		cout << "0. Thoat khoi chuong trinh" << endl;
+		int lc;
+		cout << "Nhap lua chon: "; cin >> lc;
+
+		switch (lc)
+		{
+		case 0:
+		{
+			running = false;
+			break;
+		}
+		case 1:
+		{
+			int sl;
+			cout << "Nhap so luong phan tu can them: "; cin >> sl;
+			for (int i = 1; i <= sl; i++)
+			{
+				int x;
+				cout << "Nhap pt thu " << i << " : "; cin >> x;
+				them_cuoi(ds, x);
+			}
+			break;
+		}
+		case 2:
+		{
+			xuat_ds(ds);
+			system("pause");
+			break;
+		}
+		}
+
+	}
+
+	return 0;
+}
+node* khoi_tao_node(int x) {
+	node* p = new node;
+	p->data = x;
+	p->pnext = NULL;
+	return p;
+}
+void them_cuoi(dslk& ds, int x) {
+	node* p = khoi_tao_node(x);
+	if (ds.phead == NULL) {
+		ds.phead = ds.ptail = p;
+	}
+	else if (ds.phead == ds.ptail && ds.phead != NULL) {
+		ds.ptail->pnext = p;
+		ds.ptail = p;
+	}
+	else if (ds.phead != ds.ptail) {
+		ds.ptail->pnext = p;
+		ds.ptail = p;
+	}
+}
+void xuat_ds(dslk ds) {
+	int i = 1;
+	for (node* k = ds.phead;k!=NULL;k=k->pnext)
+	{
+		cout << "PT thu " << i++ << " la: " << k->data << endl;
+	}
+}

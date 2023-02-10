@@ -1,0 +1,71 @@
+Cấu trúc điều khiển là thứ tự thực thi các câu lệnh trong chương trình
+1. Cấu trúc điều khiển tuần tự
+2. Cấu trúc điều khiển rẽ nhánh(điều kiện)
+3. Cấu trúc điều khiển lặp(vòng lặp)
+
+========================================= CẤU TRÚC ĐIỀU KHIỂN LẶP =========================================
+Là cấu trúc vòng lặp điều khiển chương trình lặp đi lặp lại một chuỗi các câu lệnh cho đến khi không còn thỏa mãn điều kiện nào đó thì dừng
+1.	Nguyên lý hoạt động vòng lặp while
+2.	Nguyên lý hoạt động vòng lặp while lồng nhau
+3.	Nguyên lý hoạt động vòng lặp do  while
+4.	Nguyên lý hoạt động vòng lặp do while lồng nhau
+5.	Nguyên lý hoạt động vòng lặp for
+6.	Nguyên lý hoạt động vòng lặp for lồng nhau
+7.	Một số phát sinh khi sử dụng vòng lặp	
+8.	Quy tắc dùng lệnh break
+9.	Quy tắc dùng lệnh continue	
+10. 	Kỹ thuật xử lý menu tĩnh
+
+*************** TẠI SAO PHẢI HỌC CẤU TRÚC VÒNG LẶP ***************
+In ra các số từ 1 đến 10000
+giải pháp dùng 10000 câu lệnh cout để in ra các số từ 1 đến 10000
+==> giải pháp này không khả thi
+https://paste.ubuntu.com/p/k6KMMkfCDD/
+
+*************** CẤU TRÚC ĐIỀU KHIỂN LẶP WHILE ***************
+Thường được dùng để lặp đi lặp lại một khối lệnh mà không biết trước số lần lặp cụ thể 
+while(<điều kiện lặp>)
+{
+	// khối lệnh sẽ xử lý - thân vòng lặp
+} 
+SOURCE CODE 1: https://paste.ubuntu.com/p/8zJmJvWFDD/
+SOURCE CODE 1.1: https://paste.ubuntu.com/p/CNggmRcQhZ/
+ 
+*************** CẤU TRÚC ĐIỀU KHIỂN LẶP DO WHILE *************** 
+Thường được dùng để lặp đi lặp lại một khối lệnh mà không biết trước số lần lặp cụ thể 
+do
+{
+	// khối lệnh sẽ xử lý - thân vòng lặp
+}while(<điều kiện lặp>); 
+SOURCE CODE 2: https://paste.ubuntu.com/p/hkJhQDwjf7/
+SOURCE CODE 3: https://paste.ubuntu.com/p/28c9dy44ck/
+
+*************** CẤU TRÚC ĐIỀU KHIỂN LẶP FOR *************** 
+Thường được dùng để lặp đi lặp lại một khối lệnh mà biết trước số lần lặp cụ thể
+for(<giá trị khởi tạo>; <điều kiện lặp>; <bước lặp>)
+{
+	// khối lệnh sẽ xử lý - thân vòng lặp
+}
+SOURCE CODE 4: https://paste.ubuntu.com/p/F9rhzNPnnF/
+SOURCE CODE 5: https://paste.ubuntu.com/p/VC7z4HftvG/
+
+*************** MỘT SỐ PHÁT SINH KHI SỬ DỤNG VÒNG LẶP ***************
+1. Vòng lặp lồng vào nhau
+SOURCE CODE 7: https://paste.ubuntu.com/p/b7f3GdFvPT/
+SOURCE CODE 8: https://paste.ubuntu.com/p/PprnDJvRWK/
+SOURCE CODE 9: https://paste.ubuntu.com/p/7fw7RZcS4Q/
+
+3. Khi nào sử dụng while, khi nào sử dụng do while, khi nào sử dụng for
+Làm nhiều bài tập ==> tự hình dung
+
+*************** NGUYÊN LÝ HOẠT ĐỘNG CÂU LỆNH BREAK - CÂU LỆNH CONTINUE ***************
+break: kết thúc vòng lặp gần nó nhất đang chứa nó
+SOURCE CODE 10: https://paste.ubuntu.com/p/ZQVvBspqT7/
+SOURCE CODE 11: https://paste.ubuntu.com/p/HcfR6FmNg9/
+
+continue: bỏ qua các lệnh của vòng lặp kể từ lệnh sau continue cho tới hết thân của vòng lặp
+SOURCE CODE 12: https://paste.ubuntu.com/p/F6PhPc7Gmg/
+
+*************** KỸ THUẬT XỬ LÝ MENU TĨNH ***************
+Viết phần mềm cho khách hàng lựa chọn thể loại phim muốn xem ?
+SOURCE CODE 13: 

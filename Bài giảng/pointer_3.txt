@@ -1,0 +1,86 @@
+//============== Biến con trỏ =================
+
+Ứng dụng:	+ Mảng động
+		+ DSLk
+		+ stack,queue
+		+ Cây nhị phân
+
+//-------
+	Vùng nhớ:	Dùng để lưu trữ giá trị (int, float, char, bool)
+	Miền giá trị:	Lưu địa chỉ
+
+
+	Biến thường:	+ Địa chỉ:	Nơi sinh ra		&a
+			+ Vùng nhớ: Giá trị			a
+
+
+	Biến con trỏ:	+ Địa chỉ: Nơi sinh ra		&p
+			+ Miền giá trị: Nơi trỏ đến		p
+			+ Giá trị của nơi trỏ đến		*p
+
+
+		Cú pháp khai báo:		<kdl> *<tên biến con trỏ>;
+
+				VD:	int *pointer;
+
+
++ Tích chất:	- Tại 1 thời điểm 1 con trỏ chỉ có thể trỏ đến 1 nơi.
+		- Tại 1 thời điểm 1 biến có thể được nhiều con trỏ trỏ đến.
+
+	Con trỏ khi sinh ra không có vùng nhớ để lưu giá trị, vậy muốn có vùng nhớ để lưu giá trị thì sao:
+			+ Trỏ(lưu địa chỉ) đến biến thường để dùng chung vùng nhớ
+					=> 1 ông thay đổi -> ông kia thay đổi theo.
+			+ Cấp phát vùng nhớ
+
+//----------------------
+Toán tử lấy địa chỉ:	&	&<Địa chỉ>		&a
+						&p
+	*<địa chỉ>		
+
+
+//============ Cấp phát vùng nhớ cho biến con trỏ ==============
+
+Các loại vùng nhớ:
+	+ code segment:	Lưu mã nhị phân
+	+ data segment:	Lưu các biến toàn cục, static
+	+ stack segment:	Lưu các biến cục bộ	- Do CPU quản lý -> Tự giải phóng
+	+ heap segment:	Dành riêng để cấp phát cho biến con trỏ	- Do lập trình viên quản lý:
+							Yêu cầu cấp phát thì phải yêu cầu giải phóng.
+
+				memory leak
+//------	Con trỏ vô kiểu 	----------------
+	
+	void *p;
+
+	Ép kiểu biến thường:	(<dkl cần ép>)<Biến/giá trị>
+			VD:	(float)7/2
+				float(7)/2
+
+	Ép kiểu biến con trỏ:	(<kdl cần ép> *)<Biến con trỏ>
+			VD:	(int *)p
+
+//--------------------------------------------------
++ C	3 hàm cấp phát, 	1  hàm giải phóng		thư viện:	stdlib.h
+
+
++void* malloc(int size);		Cấp phát 1 vùng nhớ bên heap có size byte và trả về.	unlock
+
++void* calloc(int count, int size);		Cấp phát 1 vùng nhớ lớn có count vùng nhớ nhỏ, mỗi vùng nhớ size byte và trả về.
+				Giá trị mặc định là 0.
+
++void* realloc(void* p, int size);		+ Nếu p chưa có vùng nhớ, => cấp phát mới <=> malloc
+					(Cấp phát 1 vùng nhớ lớn bên heap có kích thước tổng là size byte)
+
+				+ Nếu p có vùng nhớ -> Dựa vào size cũ và size mới để nới rộng hoặc thu hẹp
+
+
++ C++	1 toán tử cấp phát, 	1 lệnh giải phóng
+
+
+	+	unlock malloc
+	+	Cơ chế nới rộng, thu hẹp của realloc
+	+	Cấp phát mới là gì
+	+	Toán tử new
+
+ 	+	Dùng new để xây dựng realloc
+	+	Lưu ý thứ 3 khi sử dụng hàm

@@ -1,0 +1,505 @@
+Bài tập lý thuyết: 
+1. struct là gì ?
+- là kdl do lập trình viên tự định nghĩa, kdl cấu trúc lưu trữ nhiều kdl khác bên trong
+2. cú pháp khai báo 1 struct ?
+- struct <tên struct>
+{
+    <kdl tp 1><tên tp 1>;
+    <kdl tp 2><tên tp 2>;
+    <kdl tp 3><tên tp 3>;
+    ...
+    <kdl tp n><tên tp n>;
+};
+3. Đặt khai báo struct dưới hàm main được không? vì sao ?
+- không vì phạm vi ảnh hưởng của struct chỉ tính từ đoạn nó sinh ra tới cuối chương trình.
+4. dòng typedef có chức năng gì ? tối ưu việc gì ?
+- typedef : đạt tên khác cho kdl (bí danh) nhằm đơn giản hóa việc gọi các biến có kiểu dữ liệu đó 1 cách gọn gàng, thuận tiện hơn.
+5. khi nào dùng sao chép bằng toán tử gán khi nào dùng gán lần lượt ? vì sao ?
+- dùng sao chép toán tử gán khi trong struct không có biến con trỏ , còn khi trong struct có biến con trỏ thì phải tạo hàm gán lần lượt vì nếu như không làm vậy khi tạo ra nhiều biến sử dụng chung kiểu dữ liệu struct sẽ có tình trạng dùng chung vùng nhớ ở biến con trỏ , biến này thay đổi dẫn tới biến kia thay đổi theo.
+6. biến kdl struct có cần tham chiếu khi cập nhật giá trị thay đổi trong hàm không ?
+-  có để lưu lại thay đổi cho các thành phần kiểu dữu liệu trong struct của 1 biến cụ thể.
+7. Nếu trong cấu trúc mà có biến con trỏ thì ta nên chú ý việc gì(đáp án gồm 3 ý - cố gắng trả lời đủ 3)
+- cấp phát
+- giải phóng
+- tuyệt đối không xài toán tử gán (dễ xảy ra tình trạng dùng chung vùng nhớ)
+-> nên viết hàm gán
+8. struct dễ không ?
+-> Dễ hoặc Không tùy vào mỗi cá nhân ^^
+//=============== chúng ta khi tương tác với struct thì nên chú ý các thành phần là string khi nhập liệu, hãy cân nhắc có nên xóa bộ nhớ đệm không, và xóa như nào========
+- nếu như đằng trước có dấu hiệu thừa bộ nhớ đệm thì phải xóa bộ nhớ đệm trước bằng các lệnh xóa bộ nhớ đệm cin.ignore() và lưu ý nếu như không thừa bộ nhớ đệm thì không nên xóa vì lệnh cin.ignore nếu ko thấy thừa bộ nhớ đệm sẽ tự động xóa 1 ký tự đầu ở chuỗi nhập sau đó.
+//========================== BT struct ===================
+BT 1. khai báo cấu trúc 1 phân số, biết phân số luôn luôn có tử số và mẩu số
+_ nhập danh sách phân số
+_ xuất danh sách phân số
+_ rút gọn các phân số
+_ tìm phân số lớn nhất
+_ tính tổng các phân số
+_ thêm phân số x vào vị trí vt nhập từ bàn phím
+_ xóa phân số tại vị trí vt nhập từ bàn phím
+
+=====================================================================================
+#include <iostream>
+#include <fstream>
+#define MAX 100
+using namespace std;
+
+struct ps
+{
+	int ts;
+	int ms;
+};
+typedef struct ps ps;
+
+void nhap_1_ps(ps& a);
+void xuat_1_pt(ps a);
+void xuat_ds(ps ds[], int n);
+
+int ucln(int a, int b);
+void rut_gon(ps& a);
+void tim_ps_max(ps ds[], int n);
+
+ps tong(ps a, ps b);
+void tong_ds(ps ds[], int n);
+
+void them(ps ds[], int& n, int vt, ps x);
+void xoa(ps ds[], int& n, int vt);
+
+istream& operator >>(istream& is, ps& a);
+ostream& operator <<(ostream& os, ps a);
+ps operator + (ps a, ps b);
+
+void main()
+{
+	ps a;
+	cin >> a;
+
+
+	ps b;
+	cin >> b;
+
+	cout << a + b;
+
+
+
+	system("pause");
+	ps ds[MAX]; int n = 0;
+	bool kt_menu = true;
+	while (kt_menu == true)
+	{
+		system("cls");
+		cout << "1. Nhap phan so" << endl;
+		cout << "2. Xuat danh sach phan so" << endl;
+		cout << "3. Tim ps max" << endl;
+		cout << "4. Tong danh sach" << endl;
+		cout << "5. Them phan so x tai vi tri vt nhap tu ban phim" << endl;
+		cout << "6. Xoa phan so tai vi tri vt nhap tu ban phim" << endl;
+		int lc;
+		cout << "Nhap lc: "; cin >> lc;
+		switch (lc)
+		{
+		case 1:
+		{
+			int sl;
+			cout << "Nhap sl phan so can them: "; cin >> sl;
+			for (int i = 1; i <= sl; i++)
+			{
+				cout << "\t\t--- Nhap ps thu " << i << " ----" << endl;
+				ps a;
+				nhap_1_ps(a);
+				//---- Thêm cuối ---
+				ds[n++] = a;
+			}
+			break;
+		}
+		case 2:
+		{
+			xuat_ds(ds, n);
+			system("pause");
+			break;
+		}
+		case 3:
+		{
+			tim_ps_max(ds, n);
+			system("pause");
+			break;
+		}
+		case 4:
+		{
+			tong_ds(ds, n);
+			system("pause");
+			break;
+		}
+		case 5:
+		{
+			ps x;
+			int vt;
+			cout << "Nhap pt can them: " << endl;
+			nhap_1_ps(x);
+			cout << "Nhap vi tri can them: "; cin >> vt;
+			them(ds, n, vt, x);
+			system("pause");
+			break;
+		}
+		case 6:
+		{
+			int vt;
+			cout << "Nhap vi tri can them: "; cin >> vt;
+			xoa(ds, n, vt);
+			system("pause");
+			break;
+		}
+		}
+	}
+}
+void nhap_1_ps(ps& a)
+{
+	// 1/4	-1/4	1/-4	-1/-4	1/0		0/4		5/1
+
+	cout << "Nhap tu so: "; cin >> a.ts;
+	do
+	{
+		cout << "Nhap mau so: "; cin >> a.ms;
+	} while (a.ms == 0);
+
+	if (a.ms < 0)
+	{
+		a.ts = -a.ts;
+		a.ms = -a.ms;
+	}
+	rut_gon(a);
+}
+istream& operator >>(istream& is, ps& a)
+{
+	cout << "Nhap tu so: "; is >> a.ts;
+	do
+	{
+		cout << "Nhap mau so: "; is >> a.ms;
+	} while (a.ms == 0);
+
+	if (a.ms < 0)
+	{
+		a.ts = -a.ts;
+		a.ms = -a.ms;
+	}
+	rut_gon(a);
+	return is;
+}
+
+void xuat_1_pt(ps a)
+{
+	if (a.ts == 0 || a.ms == 1)
+	{
+		cout << a.ts << endl;
+	}
+	else
+	{
+		cout << a.ts << "/" << a.ms << endl;
+	}
+}
+ostream& operator <<(ostream& os, ps a)
+{
+	if (a.ts == 0 || a.ms == 1)
+	{
+		os << a.ts << endl;
+	}
+	else
+	{
+		os << a.ts << "/" << a.ms << endl;
+	}
+	return os;
+}
+
+
+void xuat_ds(ps ds[], int n)
+{
+	cout << "\t\t===== Xuat ====" << endl;
+	for (int i = 0; i < n; i++)
+	{
+		cout << "PT thu " << i << ": "; xuat_1_pt(ds[i]);
+	}
+}
+int ucln(int a, int b)
+{
+	a = abs(a);
+	b = abs(b);
+	while (a != b)
+	{
+		(a > b) ? a = a - b : b = b - a;
+	}
+	return a;//b
+}
+void rut_gon(ps& a)
+{
+	int uc = ucln(a.ts, a.ms);
+	//4/8
+	a.ts = a.ts / uc;// ts = 4/ucln(4,8) = 1
+	a.ms = a.ms / uc;// = 8/ucln(1,8) = 8
+}
+int so_sanh(ps a, ps b)
+{
+	return (a.ts * b.ms - b.ts * a.ms);
+}
+void tim_ps_max(ps ds[], int n)
+{
+	//1/3	3/4
+	ps max = ds[0];
+	for (int i = 1; i < n; i++)
+	{
+		if (so_sanh(ds[i], max) > 0)
+		{
+			max = ds[i];
+		}
+	}
+	cout << " Phan so max la: "; xuat_1_pt(max);
+}
+ps tong(ps a, ps b)
+{
+	//1/3 + 3/4
+	ps s;
+	s.ts = a.ts * b.ms + b.ts * a.ms;
+	s.ms = a.ms * b.ms;
+	rut_gon(s);
+	return s;
+}
+
+ps operator + (ps a, ps b)
+{
+	//1/3 + 3/4
+	ps s;
+	s.ts = a.ts * b.ms + b.ts * a.ms;
+	s.ms = a.ms * b.ms;
+	rut_gon(s);
+	return s;
+}
+
+void tong_ds(ps ds[], int n)
+{
+	ps s = ds[0];
+	for (int i = 1; i < n; i++)
+	{
+		s = tong(s, ds[i]);
+	}
+	cout << "Tong la: "; xuat_1_pt(s);
+}
+void them(ps ds[], int& n, int vt, ps x)
+{
+	for (int i = n; i > vt; i--)
+	{
+		ds[i] = ds[i - 1];
+	}
+	ds[vt] = x;
+	n++;
+}//template
+void xoa(ps ds[], int& n, int vt)
+{
+	for (int i = vt; i < n - 1; i++)
+	{
+		ds[i] = ds[i + 1];
+	}
+	n--;
+}
+=====================================================================================
+BT 3. BT bổ sung: (Bạn nào làm xong thì làm luyện thêm nhé BT1 là bắt buộc)
+
+Đề: Hãy khai báo kdl cấu trúc để biểu diễn thông tin của 1 sinh viên
+Biết rằng sinh viên có:
+_ mã số sinh viên: char[20]
+_ họ tên sinh viên: char[30]
+_ điểm kĩ thuật lập trình : float
+_ điểm toán rời rạc: float
+_ điểm ctdl : float
+
+1. viết hàm nhập danh sách sinh viên
+2. viết hàm xuất danh sách sinh viên
+3. Xếp loại học lực sinh viên theo điểm trung bình 3 môn
+- xuất sắc: >9.8
+- giỏi: >=8
+- khá: >=6.5
+- trung bình >=4
+- yếu <4
+4. sắp xếp danh sách sinh viên theo điểm trung bình
+5. sắp xếp danh sách sinh viên giảm dần theo tên sinh viên. theo bảng mã ascii
+============================================================================================================================================================
+#include <iostream>
+using namespace std;
+
+struct sinh_vien {
+	char mssv[20];
+	char hoTen[30];
+	float diem_ki_thuat_lap_trinh;
+	float diem_toan_roi_rac;
+	float diem_ctdl;
+};
+typedef struct sinh_vien sv;
+
+void nhap_thong_tin_1_sv(sv& a);
+void xuat_thong_tin_1_sv(sv a);
+void xuat_danh_sach_sv(sv ds[], int n);
+void xep_loai_hoc_luc_sinh_vien(float dtb);
+float tinh_diem_trung_binh(sv a);
+void sap_xep_danh_sach_sinh_vien_theo_diem_trung_binh(sv ds[], int n);
+void them_ki_tu(char k[], int &n, int vt, char x);
+void lay_ten(sv a, char k[]);
+int so_sanh_ten(char x[], char y[]);
+
+int main() {
+	sv ds[100]; int n = 0;
+	bool check = true;
+	while (check == true)
+	{
+		system("cls");
+		cout << "1.Nhap thong tin sinh vien" << endl;
+		cout << "2.Xuat danh sach sinh vien" << endl;
+		cout << "3. Xep loai hoc luc sinh vien theo diem trung binh 3 mon" << endl;
+		cout << "4. Sap xep sinh vien theo diem trung binh" << endl;
+		cout << "5. Sap xep danh sach sinh vien giam dan theo ten sinh vien." << endl;
+		cout << "0. Thoat khoi chuong trinh" << endl;
+
+		int lc; cout << "Nhap lua chon: "; cin >> lc;
+		switch (lc)
+		{
+		case 1:
+		{
+			int sl;
+			cout << "Nhap so luong sinh vien: "; cin >> sl;
+			for (int i = 0; i < sl; i++)
+			{
+				cin.ignore();
+				sv a;
+				nhap_thong_tin_1_sv(a);
+				ds[n++] = a;
+			}
+			break;
+		}
+		case 2:
+		{
+			xuat_danh_sach_sv(ds, n);
+			system("pause");
+			break;
+		}
+		case 3:
+		{
+			cout << "Xep loai hoc luc cua sinh vien:" << endl;
+			for (int i = 0; i < n; i++)
+			{
+				cout << "Sinh vien thu " << i + 1 << " : "; 
+				xep_loai_hoc_luc_sinh_vien(tinh_diem_trung_binh(ds[i]));
+				cout << endl;
+			}
+			system("pause");
+			break;
+		}
+		case 4:
+		{
+			sap_xep_danh_sach_sinh_vien_theo_diem_trung_binh(ds, n);
+			break;
+		}
+		case 5:
+		{
+			for (int i = 0; i < n - 1; i++)
+			{
+				for (int j = i + 1; j < n; j++) {
+					char k[10];
+					char l[10];
+					lay_ten(ds[j], k);
+					lay_ten(ds[i], l);
+					if (so_sanh_ten(k,l)<0)
+					{
+						swap(ds[i], ds[j]);
+					}
+				}
+			}
+			system("pause");
+			break;
+		}
+		case 0:
+		{
+			check = false;
+			break;
+		}
+		}
+	}
+
+	return 0;
+}
+void nhap_thong_tin_1_sv(sv &a) {
+	cout << "Nhap ma so sinh vien: "; gets_s(a.mssv);
+	cout << "Nhap ho ten sinh vien: "; gets_s(a.hoTen);
+	cout << "Nhap diem ki thuat lap trinh: "; cin >> a.diem_ki_thuat_lap_trinh;
+	cout << "Nhap diem toan roi rac: "; cin >> a.diem_toan_roi_rac;
+	cout << "Nhap diem cau truc du lieu: "; cin >> a.diem_ctdl;
+}
+void xuat_thong_tin_1_sv(sv a) {
+	cout << "Ma sinh vien: " << a.mssv << endl;
+	cout << "Ho ten sinh vien: " << a.hoTen << endl;
+	cout << "Diem ki thuat lap trinh: " << a.diem_ki_thuat_lap_trinh << endl;
+	cout << "Diem toan roi rac: " << a.diem_toan_roi_rac << endl;
+	cout << "Diem cau truc du lieu: " << a.diem_ctdl << endl;
+}
+void xuat_danh_sach_sv(sv ds[], int n) {
+	cout << "Thong tin sinh vien: " << endl;
+	for (int i = 0; i < n; i++)
+	{
+		cout << "Sinh vien thu " << i + 1 << " : " << endl;
+		xuat_thong_tin_1_sv(ds[i]);
+	}
+}
+float tinh_diem_trung_binh(sv a) {
+	float dtb = (float)(a.diem_ctdl + a.diem_ki_thuat_lap_trinh + a.diem_toan_roi_rac) / 3;
+	return dtb;
+}
+void xep_loai_hoc_luc_sinh_vien(float dtb) {
+	if (dtb > 9.8) {
+		cout << "Hoc luc xuat sac.";
+	}
+	else if (dtb >= 8) {
+		cout << "Hoc luc gioi.";
+	}
+	else if (dtb >= 6.5) {
+		cout << "Hoc luc kha.";
+	}
+	else if (dtb >= 4) {
+		cout << "Hoc luc trung binh.";
+	}
+	else
+	{
+		cout << "Hoc luc yeu.";
+	}
+}
+void sap_xep_danh_sach_sinh_vien_theo_diem_trung_binh(sv ds[], int n) {
+	
+	for (int i = 0; i < n - 1; i++)
+	{
+		for (int j = i + 1; j < n; j++)
+		{
+			if (tinh_diem_trung_binh(ds[j]) > tinh_diem_trung_binh(ds[i])) {
+				swap(ds[j], ds[i]);
+			}
+		}
+	}
+}
+void them_ki_tu(char k[], int &n, int vt, char x) {
+	for (int i = n+1; i > vt; i--)
+	{
+		k[i] = k[i - 1];
+	}
+	k[vt] = x;
+	n++;
+}
+void lay_ten(sv a, char k[]) {
+	int m = 0;
+	k[0] = '\0';
+	int n = strlen(a.hoTen);
+	for (int i = n; i >= 0; i--) {
+		if (a.hoTen[i]==' ')
+		{
+			break;
+		}
+		else {
+			them_ki_tu(k, m, 0, a.hoTen[i]);
+		}
+	}
+}
+int so_sanh_ten(char x[], char y[]) {
+	return strcmp(x, y);
+}

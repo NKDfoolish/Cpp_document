@@ -1,0 +1,34 @@
+//============ Mảng 2 chiều =======
+
+	+ Mảng 1 chiều: Tập hợp của các biến thường
+
+	+ Mảng 2 chiều: Tập hợp các mảng 1 chiều
+
+		a[]	1	2	3
+		b[]	4	5	9
+		c[]	6	7	8	
+
+
+	=> Quản lý 3 mảng này => Dùng mảng 2 chiều. (Đồng nhất kdl, số lượng pt tối đa của từng mảng, sl pt hiện tại)
+
+
+=> Cú pháp khai báo:		
+				<kdl>  <tên mảng 2 chiều>[<sl dòng tối đa>][<sl cột tối đa>];
+	
+				VD: int a[5][5];
+
+
+Quản lý a[] , b[]. c[]			j
+				Cột
+				0	1	2
+		i      
+	            Dòng	0	1	2	3		a[i][j]
+			1	4	5	9
+			2	6	7	8
+
+
+	//====== Khởi tạo =====
++ Khởi tạo trực tiếp
++ Khởi tạo lần lượt
+
+	// Nếu dòng  == cột	=> Ma trận vuông		Sẽ có đường chéo chính, đường chéo phụ

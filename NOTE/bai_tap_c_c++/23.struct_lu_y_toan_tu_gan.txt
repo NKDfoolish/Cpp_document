@@ -1,0 +1,62 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+struct sv
+{
+	string ma_sv;
+	string ho_ten;
+	float* diem = new float;
+};
+typedef struct sv sv;
+
+//==================================
+void gan(sv& b, sv a);
+void nhap_1_sv(sv& a);
+void xuat_1_sv(sv a);
+void main()
+{
+	sv a;//Khai báo 1 biến a kdl cấu trúc sinh viên
+	nhap_1_sv(a);
+	cout << "--a---" << endl;
+	xuat_1_sv(a);
+
+
+	cout << "--b---" << endl;
+
+	sv b;
+	gan(b, a);
+
+
+	xuat_1_sv(b);
+
+	*a.diem = *a.diem + 1;
+
+	cout << "--a---" << endl;
+	xuat_1_sv(a);
+
+	cout << "--b---" << endl;
+	xuat_1_sv(b);
+
+
+
+}
+//b = a;
+void gan(sv &b, sv a)
+{
+	b.ma_sv = a.ma_sv;
+	b.ho_ten = a.ho_ten;
+	*b.diem = *a.diem;
+}
+void nhap_1_sv(sv &a)
+{
+	cout << "Nhap ma sv: "; getline(cin, a.ma_sv);
+	cout << "Nhap ho ten: "; getline(cin, a.ho_ten);
+	cout << "Nhap diem: "; cin >> *a.diem;
+}
+void xuat_1_sv(sv a)
+{
+	cout << "Ma sv: " << a.ma_sv << endl;
+	cout << "Ho ten: " << a.ho_ten << endl;
+	cout << "Diem: " << *a.diem <<"    "<<a.diem << endl;
+}

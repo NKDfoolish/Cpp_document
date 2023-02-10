@@ -1,0 +1,270 @@
+LV0:	Duyệt, tìm kiếm, liệt kê, tổng/tích, đặt lính canh, đặt cờ hiệu
+
+//===== Tìm kiếm: Tìm số nguyên x có tồn tại trong mảng hay không =====
+
+			Cần
+=>	Tìm		=> Tìm kiếm
+	Số nguyên x	Tìm số nguyên x
+
+	Mảng
+
+		=> Thuật toán tìm kiếm ?
+	
+
+=>
+
+Các bước xây dựng chương trình khi gặp 1 bài toán:
+B1:  Đọc đề và phân tích các đặc điểm của đề
+B2: Xây dựng thuật toán - 	Bộ test trên giấy	VD:  n!		5! = 1*2*3*4*5   = 120
+B3: Code 
+B4: Biên dịch
+B5: Kiểm chứng và hoàn thiện(tối ưu và nâng cấp)
+
+
+//==== Liệt kê: Cho 1 mảng số nguyên, xuất các giá trị là số lẻ =======
+
+=>	Cho 1 mảng số nguyên:	Có 1 mảng, nhập xuất dữ liệu
+
+	Xuất
+	Các giá trị là số lẻ		=> Liệt kê		=> Liệt kê số lẻ
+	số lẻ			Kiểm tra số lẻ:  Chia cho 2 dư 1 (khác 0)
+
+
+	=> 	+ Kỹ thuật liệt kê		(duyệt + tìm kiếm)
+		+ Kỹ thuật kiểm tra số lẻ
+
+
+//==== Tính tổng: Cho 1 mảng số nguyên, Tính tổng các pt chẵn ===========
+
+	=>	Tính tổng		
+		Các pt chẵn	
+				=> Kiểm tra số chẵn (Chia dư cho 2  == 0)
+				=> Liệt kê ,  Liệt kê số chẵn
+				=> Kỹ thuật tính tổng
+
+
+//==== Đặt lính canh: Cho 1 mảng số nguyên, Tìm max ======
+
+
+	Tìm max	=>	Kỹ thuật đặt lính canh:	
+			Chọn 1 ông để làm lính, sau đó đi tuần tìm ông lính thích hợp hơn.
+
+			B1: Chọn lính
+			B2: Tìm lính thích hợp
+				Để thay lính.
+			B3: Kết luận
+
+//======= Đặt cờ hiệu: Kiểm tra mảng toàn dương =====
+
+
+	//	4	5	-3	2	1
+	//	0	1	2	3	4
+
+							4 == n	=> Mảng toàn dương
+
+	Đặt cờ hiệu:	Ban đầu sẽ chọn cờ (Trường hợp khó xảy ra nhất). 
+			Sau đó đi tìm trường hợp khiến giá trị của cờ thay đổi. Và cuối cùng là kết luận.
+
+	B1: Đặt cờ
+	B2: Tìm điều kiện khiến giá trị cờ thay đổi
+	B3: Dựa vào giá trị của cờ để kết luận
+
+//////////////////////// CODE MẪU ////////////////////////////////
+
+#include <iostream>
+#define MAX 50
+using namespace std;
+void nhap(int a[], int n);
+void xuat(int a[], int n);
+//===== Tìm kiếm: Tìm số nguyên x có tồn tại trong mảng hay không =====
+void tim_x(int a[], int n);
+//===== Tìm kiếm: Tìm số nguyên x có tồn tại trong mảng hay không =====
+void tim_x(int a[], int n);
+void in_cac_so_le_trong_mang(int a[], int n);
+//==== Tính tổng: Cho 1 mảng số nguyên, Tính tổng các pt chẵn ===========
+bool kt_so_chan(int x);
+void tong_cac_pt_chan(int a[], int n);
+//===== Đếm: Cho 1 mảng số nguyên, đếm các pt chẵn trong mảng ====
+void dem_pt_la_so_chan(int a[], int n);
+//==== Đặt lính canh: Cho 1 mảng số nguyên, Tìm max ======
+void tim_max(int a[], int n);
+//======= Đặt cờ hiệu: Kiểm tra mảng toàn dương =====
+void kt_mang_toan_duong(int a[], int n);
+void main()
+{
+	int a[MAX];int n;
+	do
+	{
+		cout << "Nhap sl pt: ";cin >> n;
+	} while (n <= 0 || n > MAX);
+	nhap(a, n);
+	xuat(a, n);
+	//=========================================
+	//tim_x(a, n);
+	//in_cac_so_le_trong_mang(a, n);
+
+	//tong_cac_pt_chan(a, n);
+	//dem_pt_la_so_chan(a, n);
+
+	//tim_max(a, n);
+	kt_mang_toan_duong(a, n);
+
+	system("pause");	
+}
+void nhap(int a[], int n)
+{
+	cout << "\t\t=== Nhap ===" << endl;
+	for (int i = 0;i < n;i++)//Duyệt
+	{
+		cout << "Nhap pt thu " << i << ": ";cin >> a[i];
+	}
+}
+void xuat(int a[], int n)
+{
+	cout << "\t\t==== Xuat ===" << endl;
+	for (int i = 0;i < n;i++)
+	{
+		cout << "PT thu " << i << " la: " << a[i] << endl;
+	}
+}
+//===== Tìm kiếm: Tìm số nguyên x có tồn tại trong mảng hay không =====
+void tim_x(int a[], int n)
+{
+	int x;cout << "Nhap x: ";cin >> x;
+
+	for (int i = 0;i < n;i++)//Duyệt để làm gì ? => Tìm kiếm
+	{
+		if (a[i] == x)//Tìm cái gì? => Tìm số nguyên x
+		{
+			//Tìm để làm gì ? => Kết luận
+			cout << "x ton tai!" << endl;
+			return;
+		}
+	}
+
+	cout << "x khong ton tai" << endl;
+}
+//==== Liệt kê: Cho 1 mảng số nguyên, xuất các giá trị là số lẻ =======
+bool kt_so_le(int x)
+{
+	if (x % 2 != 0)
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}
+void in_cac_so_le_trong_mang(int a[], int n)
+{
+	for (int i = 0;i < n;i++)//Duyệt để làm gì ? => Liệt kê
+	{
+		if (kt_so_le(a[i])==true)//Liệt kê cái gì ? => Số lẻ
+		{
+			//Liệt kê số lẻ để làm gì ?
+			cout << a[i] << endl;//Để Xuất
+		}
+	}
+}
+//==== Tính tổng: Cho 1 mảng số nguyên, Tính tổng các pt chẵn ===========
+bool kt_so_chan(int x)
+{
+	if (x % 2 == 0)
+	{
+		return true;
+	}
+	return false;
+}
+void tong_cac_pt_chan(int a[],int n)
+{
+	int gio = 0;
+
+	for (int i = 0;i < n;i++)//duyệt để Liệt kê
+	{
+		if (kt_so_chan(a[i]) == true)//Liệt kê số chẵn
+		{
+			//Liệt kê số chẵn để làm gì ? Tính tổng
+			gio = gio + a[i];//gio = gio + qua;
+		}
+	}
+
+	cout << "S = " << gio << endl;
+}
+//===== Đếm: Cho 1 mảng số nguyên, đếm các pt chẵn trong mảng ====
+void dem_pt_la_so_chan(int a[],int n)
+{
+	int dem = 0;
+	for (int i = 0;i < n;i++)//duyệt để liệt kê
+	{
+		if (kt_so_le(a[i]) == false)//Liệt kê số chẵn
+		{
+			//Liệt kê để đếm
+			dem = dem + 1;
+		}
+	}
+	cout << "S = " << dem << endl;
+}
+//==== Đặt lính canh: Cho 1 mảng số nguyên, Tìm max ======
+void tim_max(int a[],int n)
+{
+	//	4	15	-2	0	17
+	//	0	1	2	3	4
+
+	//B1: Đặt lính
+	int max = a[0];
+	for (int i = 1;i < n;i++)//Duyệt để tìm lính
+	{
+		if (a[i] > max)//B2: Tìm lính thích hợp
+		{
+			max = a[i];//B2.1: Thay lính
+		}
+	}
+	//B3: Kết luận
+	cout << "Max = " << max << endl;
+}
+//======= Đặt cờ hiệu: Kiểm tra mảng toàn dương =====
+void kt_mang_toan_duong1(int a[], int n)//kỹ thuật đếm
+{
+	int dem = 0;
+	for (int i = 0;i < n;i++)
+	{
+		if (a[i] > 0)//Liệt kê pt dương
+		{
+			dem++;//Đếm
+		}
+	}
+	//--- Đếm để kiểm tra xem có bằng tổng sl pt của mảng hay không ---
+	if (dem == n)
+	{
+		cout << "Mang toan duong!" << endl;
+	}
+	else
+	{
+		cout << "Mang khong toan duong!" << endl;
+	}
+}
+void kt_mang_toan_duong(int a[],int n)
+{
+	//B1: Đặt cờ
+	bool kt = true;//Mảng toàn dương
+
+	//B2: Tìm điều kiện khiến giá trị cờ thay đổi
+	for (int i = 0;i < n;i++)
+	{
+		if (a[i] < 0)//Chỉ cần 1 pt âm
+		{
+			kt = false;//Mảng không toàn dương.
+			break;
+		}
+	}
+	//B3: Dựa vào giá trị của cờ để kết luận
+	if (kt == true)
+	{
+		cout << "Mang toan duong!" << endl;
+	}
+	else
+	{
+		cout << "Mang khong toan duong!" << endl;
+	}
+}

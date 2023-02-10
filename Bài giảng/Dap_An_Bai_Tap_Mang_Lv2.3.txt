@@ -1,0 +1,180 @@
+#include <iostream>
+using namespace std;
+void nhap(int a[], int n);
+void xuat(int a[], int n);
+
+int ucln(int a, int b);
+void ucln_mang(int a[], int n);
+void kc_max(int a[], int n);
+void dao_mang(int a[], int n);
+void dich_phai(int a[], int n);
+
+void main()
+{
+	//int a[100] = { 24,45,23,45,13,-15 }; int n = 6;
+	//int a[100] = { 45,45,45,45 }; int n = 4;
+
+	int a[100]; int n; cin >> n;
+	nhap(a, n);
+	xuat(a, n);
+
+	//ucln_mang(a, n);
+
+	//kc_max(a, n);
+
+	//dao_mang(a, n);
+	dich_phai(a, n);
+
+	xuat(a, n);
+}
+
+void nhap(int a[], int n)
+{
+	cout << "\t\t===== Nhap ===" << endl;
+	for (int i = 0; i < n; i++)
+	{
+		cout << "Nhap pt thu " << i << ": "; cin >> a[i];
+	}
+}
+void xuat(int a[], int n)
+{
+	cout << "\t\t===== Xuat ===" << endl;
+	for (int i = 0; i < n; i++)
+	{
+		cout << "Pt thu " << i << " la: " << a[i] << endl;
+	}
+}
+int ucln(int a, int b)//4, 6
+{
+	while (a != b)//2 2
+	{
+		(a > b) ? a=a-b : b=b-a;
+	}
+	return a;//b
+}
+void ucln_mang(int a[], int n)
+{
+	int uc = a[0];
+	for (int i = 1; i < n; i++)
+	{
+		uc = ucln(uc, a[i]);
+	}
+	cout << "UCLN cua mang la: " << uc << endl;
+}
+void kc_max1(int a[], int n)
+{
+	int x; cout << "Nhap x: "; cin >> x;
+	//---- tìm kc max ---
+	int kc_max = abs(a[0] - x);
+	for (int i = 1; i < n; i++)
+	{
+		int kc = abs(a[i] - x);
+		if (kc > kc_max)
+		{
+			kc_max = kc;
+		}
+	}
+	//--- Duyệt 1 lần nữa để đối chiếu lấy các giá trị có kc == kc max ---
+	for (int i = 0; i < n; i++)
+	{
+		int kc = abs(a[i] - x);
+		if (kc == kc_max)
+		{
+			cout << "Gia tri xa " << x << " nhat la: " << a[i] << endl;
+		}
+	}
+}
+void sap_xep(int a[], int n)
+{
+	for (int i = 0; i < n - 1; i++)
+	{
+		for (int j = i + 1; j < n; j++)
+		{
+			if (a[j] < a[i])
+			{
+				swap(a[i], a[j]);
+			}
+		}
+	}
+}
+void kc_max2(int a[], int n)
+{
+	int x; cout << "Nhap x: "; cin >> x;
+	sap_xep(a, n);
+	int kc_tu_pt_dau = abs(a[0] - x);
+	int kc_tu_pt_cuoi = abs(a[n-1] - x);
+
+	if (kc_tu_pt_dau > kc_tu_pt_cuoi)
+	{
+		cout << "Gia tri xa " << x << " nhat la: " << a[0] << endl;
+	}
+	else if (kc_tu_pt_cuoi > kc_tu_pt_dau)
+	{
+		cout << "Gia tri xa " << x << " nhat la: " << a[n - 1] << endl;
+	}
+	else
+	{
+		cout << "Gia tri xa " << x << " nhat la: " << a[0] << endl;
+		cout << "Gia tri xa " << x << " nhat la: " << a[n - 1] << endl;
+	}
+}
+void kc_max(int a[], int n)
+{
+	int x; cout << "Nhap x: "; cin >> x;
+	
+	//------ Tìm min, max -----
+	int min = a[0];
+	int max = a[0];
+	for (int i = 1; i < n; i++)
+	{
+		if (a[i] < min)
+		{
+			min = a[i];
+		}
+		if (a[i] > max)
+		{
+			max = a[i];
+		}
+	}
+	int kc_tu_min_den_x = abs(min - x);
+	int kc_tu_max_den_x = abs(max - x);
+
+	if ((kc_tu_min_den_x > kc_tu_max_den_x) || (min == max))
+	{
+		cout << "Gia tri xa " << x << " nhat la: " << min << endl;
+	}
+	else if (kc_tu_max_den_x > kc_tu_min_den_x)
+	{
+		cout << "Gia tri xa " << x << " nhat la: " << max << endl;
+	}
+	else
+	{
+		cout << "Gia tri xa " << x << " nhat la: " << min << endl;
+		cout << "Gia tri xa " << x << " nhat la: " << max << endl;
+	}
+}
+void dao_mang(int a[], int n)
+{
+	for (int i = 0; i < n / 2; i++)
+	{
+		swap(a[i], a[n - i - 1]);
+	}
+}
+void them(int a[], int &n, int vt, int x)
+{
+	for (int i = n; i > vt; i--)
+	{
+		a[i] = a[i - 1];
+	}
+	a[vt] = x;
+	n++;
+}
+void dich_phai(int a[], int n)
+{
+	int k; cout << "Nhap k: "; cin >> k;//8
+	for (int i = 1; i <= k%n; i++)//	i<= 8%5		i<=3
+	{
+		them(a, n, 0, a[n - 1]);
+		n--;
+	}
+}

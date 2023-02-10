@@ -1,0 +1,1080 @@
+========================================= PHẦN 1 - CƠ BẢN ========================================= 
+Bài 1. Nhập vào số nguyên dương n(n > 0). Tính tổng S(n) theo công thức sau:
+S(n) = 1 + 2 + 3 + 4 +…..+ n
+Dữ liệu đầu vào						Dữ liệu đầu ra
+n = 0							0
+n = 1							1
+n = 5							15
+https://paste.ubuntu.com/p/MWQKDfCbxv/
+
+Bài 2. Nhập vào số nguyên dương n. Tính tích S(n) theo công thức sau:
+S(n) = 1 x 2 x 3 x 4 x…..x n
+Dữ liệu đầu vào						Dữ liệu đầu ra
+n = 1							1
+n = 2							2
+n = 5							120
+
+Bài 3. Nhập vào số nguyên dương n. Tính tổng S(n) = 1^2 + 2^2 + 3^2 + 4^2 +…..+ n^2
+Dữ liệu đầu vào						Dữ liệu đầu ra
+n = 0							0
+n = 1							1
+n = 3							14
+
+Bài 4. Nhập vào số nguyên dương n. Xuất các giá trị chẵn trong đoạn từ 1 đến n
+Dữ liệu đầu vào						Dữ liệu đầu ra
+n = 1							Không có
+n = 5							2  4
+n = 10							2  4  6  8  10
+
+Bài 5. Nhập vào số nguyên dương n. Liệt kê tất cả “ước số” của số nguyên dương n.
+Dữ liệu đầu vào						Dữ liệu đầu ra
+n = 6							1  2  3  6
+n = 7							1  7
+n = 10							1  2  5  10
+https://paste.ubuntu.com/p/G8HWDNDxtq/
+
+Bài 6.  Nhập vào số nguyên dương n. Tính tổng các “ước số” của số nguyên dương n.
+Dữ liệu đầu vào						Dữ liệu đầu ra
+n = 6							1  +  2  +  3  +  6 = 12
+n = 7							1  +  7 = 8
+n = 10							1  +  2  +  5  +  10 = 18
+
+Bài 7. Nhập vào số nguyên dương n. Xuất các "chữ số" của số nguyên dương n.
+Gợi ý: Dùng toán tử chia lấy dư % và chia lấy nguyên / cho 10
+Dữ liệu đầu vào						Dữ liệu đầu ra
+n = 123							3  2  1
+n = 69							9  6
+n = 9							9
+https://paste.ubuntu.com/p/PcbHqVsDnt/
+
+Bài 8: Nhập vào số nguyên dương n(n > 0). Xuất các "chữ số chẵn" của số nguyên dương n.
+Gợi ý: Dùng toán tử chia lấy dư % và chia lấy nguyên / cho 10
+Dữ liệu đầu vào						Dữ liệu đầu ra
+n = 1234						4  2
+n = 123							2
+n = 99							Không có
+https://paste.ubuntu.com/p/Y5v6M4wbvf/
+
+Bài 9. Nhập vào số nguyên dương n. Tính tổng S(n) = 1 + 1/2 + 1/3 + 1/4 +…..+ 1/n
+Dữ liệu đầu vào						Dữ liệu đầu ra
+n = 0							0
+n = 1							1
+n = 5							2.283333
+
+Bài 10. Nhập vào số nguyên dương n. Tính tổng S(n) = 1 + 1/3 + 1/5 +…+ 1/ (2*n + 1)
+Dữ liệu đầu vào						Dữ liệu đầu ra
+n = 0							1
+n = 1							1.333333
+n = 2							1.533333
+
+Bài 11. Bài toán đôi vớ
+- Nhà bạn A có n đôi vớ, mỗi ngày bạn A mang 1 đôi, mang xong thì vứt bỏ
+- Cứ m ngày thì mẹ bạn A mua thêm cho A một đôi vớ mới.
+- Hỏi bạn A mang vớ bao nhiêu ngày thì hết vớ để mang.
+Dữ liệu đầu vào						Dữ liệu đầu ra
+n = 2, m = 2						3
+n = 9, m = 3						13
+n = 12, m = 4						15
+n = 21, m = 4						27
+n = 20, m = 3						29
+https://paste.ubuntu.com/p/YXk6w62BRq/
+
+Bài 12. Nhập vào số nguyên dương n có tối đa 9 chữ số. Viết chương trình đọc số n đó bằng chữ
+Dữ liệu đầu vào						Dữ liệu đầu ra
+n = 256							hai tram nam muoi sau
+n = 102					       		mot tram linh(le) hai
+n = 2100003647				        	hai ty mot tram bon muoi bay trieu bon tram tam muoi ba nghin sau tram bon muoi bay
+
+Bài 13. Nhập vào số nguyên dương n(n > 0). Viết chương trình kiểm tra xem n có phải là đối xứng hay không ?
+Biết n là số đối xứng hay còn gọi là số thuận nghịch nếu đọc từ trái sang phải hay từ phải sang trái cũng là chính nó.
+Dữ liệu đầu vào                                                     	Dữ liệu đầu ra
+n = 112                                                               	Không phải số đối xứng
+n = 3                                                          	      	Số đối xứng
+n = 1221                                                      	      	Số đối xứng
+https://paste.ubuntu.com/p/MW8drc8zWJ/
+
+Bài 14. Nhập vào số nguyên dương n(n > 0). Viết chương trình kiểm tra xem số nguyên dương n có phải là số Amstrong không ? 
+Biết n là số Amstrong khi tổng lũy thừa k của các chữ số của n bằng chính nó(với k là số lượng chữ số của n).
+Dữ liệu đầu vào             						Dữ liệu đầu ra
+n = 135                            					Không phải số Amstrong vì 1^3 + 3^3 + 5^3 khác 135
+n = 9                            					Số Amstrong vì 9^1 bằng  9
+n = 153                         					Số Amstrong vì 1^3 + 5^3 + 3^3 bằng 153
+n = 1634                       						Số Amstrong vì 1^4+6^4+3^4+4^4 bằng 1634
+https://paste.ubuntu.com/p/3KGWR3yRP5/
+
+Bài 15. Nhập vào số nguyên dương n(n > 0). Viết chương trình kiểm tra xem n có phải là số nguyên tố hay không ? 
+Biết n được gọi là số nguyên tố khi n chỉ chia hết cho 1 và chính nó
+Dữ liệu đầu vào                                                     	Dữ liệu đầu ra
+n = 2                                                          	      	Số nguyên tố
+n = 3                                                          	      	Số nguyên tố
+n = 1									Không phải số nguyên tố
+n = 17 									Số nguyên tố
+
+Bài 16. Dãy Fibonacci là dãy số mà số tiếp theo là tổng của hai số liền trước. Dãy Fibonacci bắt đầu từ hai số F0 & F1. 
+Giá trị ban đầu của F0 & F1 có thể tương ứng là 0, 1 hoặc 1, 1.
+Cho công thức của dãy Fibonacci như sau:
+F(0) = F(1) = 1
+F(n) = F(n-1) + F(n-2)
+Ta có dãy Fibonacci như sau: 1 1 2 3 5 8 13 21 34 55 89 144....
+Nhập vào số nguyên không âm n, hãy tính Fn ?
+Dữ liệu đầu vào                                                     	Dữ liệu đầu ra
+n = 0                                                	      	      	1
+n = 1                                                          	      	1
+n = 2                                                          	      	2
+n = 3                                                          	      	3
+n = 5                                                          	      	8
+n = 8                                                          	      	34
+
+========================================= PHẦN 2 - NÂNG CAO =========================================
+Bài 17. Nhập vào số nguyên dương h(h > 0). Viết chương trình in ra hình tam giác cân đặc với chiều cao h.
+Dữ liệu đầu vào                                           		Dữ liệu đầu ra
+h = 3                                                                            *
+     	 									***
+    									       *****
+h = 4
+                                                                            	 *
+                                                                  	      	***
+                                                                               *****
+                                                                  	      *******
+
+Bài 18. Nhập vào số nguyên dương h(h > 0). Viết chương trình in ra hình tam giác cân rỗng với chiều cao h.
+Dữ liệu đầu vào                                           		Dữ liệu đầu ra
+h = 3        	                                                        	 *
+                                                                  	       *   *
+        								       *****
+h = 4
+                                                                            	  *
+                                                                  	      	*   *
+                                                                               *     *
+                                                                  	       *******
+
+Bài 19. Nhập vào số nguyên dương n(n > 0). Viết chương trình xuất ra chữ số ở vị trí k bất kỳ tính từ phải sang trái.
+Dữ liệu đầu vào                                           		Dữ liệu đầu ra
+n = 123, k = 2								2
+n = 1029, k = 3								0
+n = 12654, k = 6							KHONG CO
+
+Bài 20. Nhập vào số nguyên dương n(n > 0). Viết chương trình xuất ra chữ số ở vị trí k bất kỳ tính từ trái sang phải.
+Dữ liệu đầu vào                                           		Dữ liệu đầu ra
+n = 123, k = 2								2
+n = 1029, k = 3								2
+n = 12654, k = 6							KHONG CO
+
+Bài 21. Nhập vào số nguyên dương n(n > 0). Viết chương trình tìm chữ số lớn nhất.
+Dữ liệu đầu vào                                           		Dữ liệu đầu ra
+n = 123									3
+n = 91029								9
+n = 9999								KHONG CO
+
+Bài 22. Nhập vào số nguyên dương n(n > 0). Viết chương trình tìm chữ số lớn thứ k
+Dữ liệu đầu vào                                           		Dữ liệu đầu ra
+n = 123, k = 2								2
+n = 91029, k = 3							1
+n = 9999, k = 2								KHONG CO
+
+Bài 23. Nhập vào số nguyên dương n(n > 0). Viết chương trình xuất ra số nguyên dương có chữ số tăng dần từ phải sang trái.
+Dữ liệu đầu vào                                           		Dữ liệu đầu ra
+n = 321									321
+n = 91029								99210
+n = 9999								KHONG CO
+
+Bài 24. Mô tả hoạt động máy rút tiền ATM
+Biết máy ATM bao gồm 4 loại tờ tiền 500, 200, 100 và 50.
+Mỗi loại tờ tiền tương ứng với số lượng tờ tiền cho trước là count_500, count_200, count_100 và count_50. Giả sử máy ATM chứa lượng tiền ban đầu mặc định sẵn là X bất kỳ.
+1. Viết chương trình mô phỏng hoạt động của một máy ATM với chức năng cho phép người dùng nhập vào số tiền cần rút là n.
+2. Người dùng có thể lựa chọn thực hiện chức năng rút tiền cho đến khi máy hết tiền hoặc kết thúc chương trình sau khi hoàn thành thao tác.
+Lưu ý: Số lượng tờ tiền rút phải là ít nhất
+Dữ liệu đầu vào                                           	Dữ liệu đầu ra
+n = 650                                                	   	1 to 500, 1 to 100, 1 to 50
+n = 550                                                	   	1 to 500, 1 to 50
+n = 1500                                              	   	3 to 500
+ 
+3. Nâng cấp bảo mật cho khách hàng bằng cách khởi tạo cho khách hàng mật khẩu mặc định sẵn ban đầu là dãy số tối đa 8 chữ số
+Nếu khách hàng nhập đúng mật khẩu thì mới cho thực hiện các chức năng của máy ATM
+-------------------------------------------------------------------------
+
+
+
+
+Bai_2:###############################################
+#include <iostream>
+using namespace std;
+
+int Tich(int n)
+{
+	int s = 1;
+	for (int i = 2; i <= n; i++)
+	{
+		s = s * i;
+	}
+	return s;
+}
+
+int main()
+{
+	int n;
+	do
+	{
+		cout << "Nhap n nguyen duong tu ban phim: ";
+		cin >> n;
+		if (n <= 0)
+			cout << "\nn khong phai la so nguyen duong. Vui long nhap lai.\n";
+	} while (n <= 0);
+	cout << "\nTich S(" << n << ")= " << Tich(n);
+
+	return 0;
+}
+
+Bai_3:##################################################################
+#include <iostream>
+using namespace std;
+#include <cmath>
+
+int Tong(int n)
+{
+	int s = 0;
+	for (int i = 1; i <= n; i++)
+	{
+		s = s + pow(i, 2);
+	}
+	return s;
+}
+
+int main()
+{
+	int n;
+	do
+	{
+		cout << "Nhap n nguyen duong tu ban phim: ";
+		cin >> n;
+		if (n <= 0)
+			cout << "\nn khong phai la so nguyen duong. Vui long nhap lai.\n";
+	} while (n <= 0);
+	cout << "\nTong S(" << n << ")= " << Tong(n);
+
+	return 0;
+}
+
+Bai_4:#########################################################
+#include <iostream>
+using namespace std;
+#include <cmath>
+
+void Tim_So_Chan(int n)
+{
+	cout << "\nCac so chan : ";
+	for (int i = 1; i <= n; i++)
+	{
+		if (i % 2 == 0)
+		{
+			cout << i << " ";
+		}
+	}
+}
+
+int main()
+{
+	int n;
+	do
+	{
+		cout << "Nhap n nguyen duong tu ban phim: ";
+		cin >> n;
+		if (n <= 0)
+			cout << "\nn khong phai la so nguyen duong. Vui long nhap lai.\n";
+	} while (n <= 0);
+	Tim_So_Chan(n);
+
+	return 0;
+}
+
+Bai_6:####################################################################
+#include <iostream>
+using namespace std;
+#include <cmath>
+
+void Tong_cac_uoc_so(int n)
+{
+	int s = 0;
+	for (int i = 1; i <= n; i++)
+	{
+		if (n % i == 0)
+		{
+			s = s + i;
+		}
+	}
+	cout << "\nTong cac uoc so la: " << s;
+}
+
+int main()
+{
+	int n;
+	do
+	{
+		cout << "Nhap n nguyen duong tu ban phim: ";
+		cin >> n;
+		if (n <= 0)
+			cout << "\nn khong phai la so nguyen duong. Vui long nhap lai.\n";
+	} while (n <= 0);
+	Tong_cac_uoc_so(n);
+
+	return 0;
+}
+Bai_9:############################################################
+#include <iostream>
+using namespace std;
+#include <cmath>
+
+float Tong(int n)
+{
+	float s = 0;
+	for (int i = 1; i <= n; i++)
+	{
+			s = s + 1.0 / i;
+	}
+	return s;
+}
+
+int main()
+{
+	int n;
+	do
+	{
+		cout << "Nhap n nguyen duong tu ban phim: ";
+		cin >> n;
+		if (n <= 0)
+			cout << "\nn khong phai la so nguyen duong. Vui long nhap lai.\n";
+	} while (n <= 0);
+	cout << "\ntong: " << Tong(n);
+
+	return 0;
+}
+Bai_10:###############################################################################
+#include <iostream>
+using namespace std;
+#include <cmath>
+
+float Tong(int n)
+{
+	float s = 1;
+	for (int i = 1; i <= n; i++)
+	{
+		s = s + 1.0 / (i * 2 + 1);
+	}
+	return s;
+}
+
+int main()
+{
+	int n;
+	do
+	{
+		cout << "Nhap n nguyen duong tu ban phim: ";
+		cin >> n;
+		if (n <= 0)
+			cout << "\nn khong phai la so nguyen duong. Vui long nhap lai.\n";
+	} while (n <= 0);
+	cout << "\ntong: " << Tong(n);
+
+	return 0;
+}
+
+Bai_15:#########################################################################
+#include <iostream>
+using namespace std;
+#include <cmath>
+
+bool KT_SNT(int n)
+{
+	if (n < 2)
+		return false;
+	else if (n > 2)
+	{
+		for (int i = 2; i < n; i++)
+		{
+			if (n % i == 0)
+				return false;
+			else
+				return true;
+		}
+	}
+	else
+	{
+		return true;
+	}
+}
+
+int main()
+{
+	int n;
+	do
+	{
+		cout << "Nhap n nguyen duong tu ban phim: ";
+		cin >> n;
+		if (n <= 0)
+			cout << "\nn khong phai la so nguyen duong. Vui long nhap lai.\n";
+	} while (n <= 0);
+	if (KT_SNT(n) == true)
+		cout << n << " la so nguyen to.";
+	else
+	{
+		cout << n << " khong la so nguyen to.";
+	}
+
+	return 0;
+}
+Bai_16#######################################################
+
+#include <iostream>
+using namespace std;
+#include <cmath>
+
+void Fibonacci(int n)
+{
+	int f0 = 1; 
+	int f1 = 1;
+	int fn = 0;
+	for (int i = 2; i <= n; i++)
+	{
+		fn = f0 + f1;
+		f0 = f1;
+		f1 = fn;
+	}
+	cout << "\Gia tri thu n la: " << fn;
+}
+
+int main()
+{
+	int n;
+	do
+	{
+		cout << "Nhap n nguyen duong tu ban phim: ";
+		cin >> n;
+		if (n <= 0)
+			cout << "\nn khong phai la so nguyen duong. Vui long nhap lai.\n";
+	} while (n <= 0);
+	Fibonacci(n);
+
+	return 0;
+}
+bai_17#####################################################
+
+#include <iostream>
+using namespace std;
+#include <cmath>
+
+void Tam_Giac_Can(int h)
+{
+	int m = h;
+	int n = h;
+    for (int i = 1; i <= h; i++) 
+    {
+		for (int j = 1; j <= 2*h - 1; j++)
+		{
+			if (j >= m && j <= n)
+				cout << "*";
+			else
+				cout << " ";
+		}
+		m--;
+		n++;
+		cout << endl;
+    }
+}
+
+int main()
+{
+	int n;
+	do
+	{
+		cout << "Nhap chieu cao n tu ban phim: ";
+		cin >> n;
+		if (n <= 0)
+			cout << "\nn khong hop le. Vui long nhap lai.\n";
+	} while (n <= 0);
+	Tam_Giac_Can(n);
+
+	return 0;
+}
+
+Bai_18########################################################################
+#include <iostream>
+using namespace std;
+#include <cmath>
+
+void Tam_Giac_Can(int h)
+{
+	int m = h;
+	int n = h;
+    for (int i = 1; i <= h; i++) 
+    {
+		for (int j = 1; j <= 2*h - 1; j++)
+		{
+			if (j == m || j == n || i == h)
+				cout << "*";
+			else
+				cout << " ";
+		}
+		m--;
+		n++;
+		cout << endl;
+    }
+}
+
+int main()
+{
+	int n;
+	do
+	{
+		cout << "Nhap chieu cao n tu ban phim: ";
+		cin >> n;
+		if (n <= 0)
+			cout << "\nn khong hop le. Vui long nhap lai.\n";
+	} while (n <= 0);
+	Tam_Giac_Can(n);
+
+	return 0;
+}
+Bai_19######################################################
+
+#include <iostream>
+using namespace std;
+
+void Vi_Tri(int n,int k)
+{
+	int dem = 0;
+	while (n != 0)
+	{
+		int temp = n % 10;
+		++dem;
+		n = n / 10;
+		if (dem == k)
+		{
+			cout << "\nChu so thu " << k << " la: " << temp;
+			break;
+		}
+	}
+}
+
+int main()
+{
+	int n, k;
+	do
+	{
+		cout << "Nhap  nguyen duong tu ban phim: ";
+		cin >> n;
+		cout << "\nNhap thu tu k tu ban phim: ";
+		cin >> k;
+	} while (n <= 0 || k <= 0);
+	Vi_Tri(n, k);
+
+	return 0;
+}
+
+Bai_20#######################################################
+#include <iostream>
+using namespace std;
+
+void Vi_Tri(int n,int k)
+{
+	int s = 0;
+	int dem = 0;
+	while (n != 0)
+	{
+		int temp = n % 10;
+		s = s * 10 + temp;
+		n = n / 10;
+	}
+	while (s != 0)
+	{
+		int temp_2 = s % 10;
+		++dem;
+		s = s / 10;
+		if (dem == k)
+		{
+			cout << "\nChu so thu " << k << " la: " << temp_2;
+			break;
+		}
+	}
+
+}
+
+int main()
+{
+	int n, k;
+	do
+	{
+		cout << "Nhap  nguyen duong tu ban phim: ";
+		cin >> n;
+		cout << "\nNhap thu tu k tu ban phim: ";
+		cin >> k;
+	} while (n <= 0 || k <= 0);
+	Vi_Tri(n, k);
+
+	return 0;
+}
+Bai_21####################################################
+#include <iostream>
+using namespace std;
+
+int Max_x(int n)
+{
+	int max = 0;
+	int s = 0;
+	int dem = 0;
+	while (n != 0)
+	{
+		int temp = n % 10;
+		if (temp > max)
+		{
+			max = temp;
+		}
+		n = n / 10;
+	}
+	return max;
+}
+
+int main()
+{
+	int n;
+	do
+	{
+		cout << "Nhap  nguyen duong tu ban phim: ";
+		cin >> n;
+	} while (n <= 0);
+	cout << "\nChu so max la: " << Max_x(n);
+
+	return 0;
+}
+Bai_22################################################################
+#include <iostream>
+using namespace std;
+void Tim_so_lon_thu_k(int n, int k)
+{
+	int p, h, max, temp;
+	int m = n;
+	int t = n;
+	int count = 0;
+	int dem = 0;
+	int w = 0;
+	int l = 10;
+	while (true)
+	{
+		h = 0;
+		max = 0;
+		while (m != 0)
+		{
+			temp = m % 10;
+			if (max < temp)
+			{
+				max = temp;
+			}
+			m = m / 10;
+		}
+		++count;
+		while (n != 0)
+		{
+			p = (n % 10);
+			if (p == max)
+			{
+
+			}
+			else
+			{
+				h = h * 10 + p;
+			}
+
+			n = n / 10;
+		}
+		m = h;
+		n = h;
+		while (t != 0)
+		{
+			int v = t % 10;
+			if (v != l)
+			{
+				++dem;
+			}
+			l = v;
+			t = t / 10;
+		}
+		if (count == k)
+		{
+			cout << "\nSo lon thu " << count << " la: " << max;
+			break;
+		}
+		if (k > dem)
+		{
+			cout << "\nKhong co vi chu so lon thu " << k;
+			break;
+		}
+	}
+
+}
+int main()
+{
+	int n, k;
+	do
+	{
+		cout << "\nNhap so nguyen duong n: ";
+		cin >> n;
+		cout << "\nNhap vao chu so lon thu k: ";
+		cin >> k;
+		if (n <= 0)
+		{
+			cout << "\nBan da nhap sai so nguyen duong! Vui long nhap lai.\n";
+		}
+	} while (n <= 0);
+	Tim_so_lon_thu_k(n, k);
+	return 0;
+}
+Bai_23#####################################################################################
+#include <iostream>
+using namespace std;
+#include <cmath>
+
+void Sap_Xep_Tang_Dan(int n)
+{
+	int p, q, r, l, m;
+	int s = 0;
+	int h = 0;
+	int max = -1;
+	int dem = 0;
+	int dem_2 = 0;
+	int k = 0;
+	int dem_3 = 0;
+	m = n;
+	p = n;
+	q = n;
+	r = n;
+	l = n;
+
+	while (r != 0)// đếm số chữ số trong số nguyên
+	{
+		r = r / 10;
+		++dem_2;
+	}
+
+	while (true)
+	{
+		while (m != 0) // tìm chữ số max
+		{
+			int temp = m % 10;
+			if (max < temp)
+			{
+				max = temp;
+			}
+			m = m / 10;
+		}
+
+		while (p != 0) // sắp những chữ số = max vô 1 biến 
+		{
+			int temp_2 = p % 10;
+			if (temp_2 == max)
+			{
+				++dem;
+				s = s * 10 + temp_2;
+			}
+			p = p / 10;
+		}
+
+		while (q != 0) // sắp những số không bằng max vô biến khác
+		{
+
+			int temp_3 = q % 10;
+			if (temp_3 == max)
+			{
+
+			}
+			else if (temp_3 == 0)
+			{
+				++dem_3;
+			}
+			else
+			{
+				h = h * 10 + temp_3;
+			}
+			q = q / 10;
+		}
+
+
+		m = h;
+		p = h;
+		q = h;
+		max = -1;
+		h = 0;
+
+		if ((dem + dem_3) == dem_2)
+		{
+			s = s * pow(10, dem_3);
+			while (s != 0)
+			{
+				int temp_4 = s % 10;
+				k = k * 10 + temp_4;
+				s = s / 10;
+			}
+			cout << "\nSo sau khi sap la: ";
+			for (int i = 1; i <= dem_3; i++)
+			{
+				cout << "0";
+			}
+			cout << k;
+
+			break;
+		}
+	}
+
+}
+
+int main()
+{
+	
+	int n;
+
+	do
+	{
+		cout << "Nhap gia tri nguyen duong n: ";
+		cin >> n;
+		if (n <= 0)
+		{
+			cout << "\nn khong phai la so nguyen duong. Vui long nhap lai.";
+		}
+	} while (n <= 0);
+	Sap_Xep_Tang_Dan(n);
+
+	return 0;
+}
+Bai_12##########################################################
+#include<iostream>
+using namespace std;
+void Doc_So(int n)
+{
+    int m;
+    int dem = 0;
+    int sdn = 0;
+    int dem_2 = 0;   
+    m = n;
+    while (m != 0)
+    {
+        dem_2++;
+        m = m / 10;
+    }
+    while (n != 0)
+    {
+        int temp = n % 1000;
+        sdn = sdn * 1000 + temp;
+        n = n / 1000;
+    }
+    n = sdn;
+    while (n != 0)
+    {
+        int a = n % 10;
+        n = n / 10;
+        int b = n % 10;
+        n = n / 10;
+        int c = n % 10;
+        ++dem;
+        switch (c) {
+        case 0:break;
+        case 1: cout << "mot tram "; break;
+        case 2: cout << "hai tram "; break;
+        case 3: cout << "ba tram "; break;
+        case 4: cout << "bon tram "; break;
+        case 5: cout << "nam tram "; break;
+        case 6: cout << "sau tram "; break;
+        case 7: cout << "bay tram "; break;
+        case 8: cout << "tam tram "; break;
+        case 9: cout << "chin tram "; break;
+        }
+        if (c != 0 && b == 0 && a != 0) {
+            cout << "le ";
+        }
+        switch (b) {
+        case 0:break;
+        case 1: cout << "muoi "; break;
+        case 2: cout << "hai muoi "; break;
+        case 3: cout << "ba muoi "; break;
+        case 4: cout << "bon muoi "; break;
+        case 5: cout << "nam muoi "; break;
+        case 6: cout << "sau muoi "; break;
+        case 7: cout << "bay muoi "; break;
+        case 8: cout << "tam muoi "; break;
+        case 9: cout << "chin muoi "; break;
+        }
+        switch (a) {
+        case 0:
+            if (c == 0 && b == 0)
+            {
+                cout << "khong ";
+                break;
+            }
+            else
+            {
+                break;
+            }
+        case 1: cout << "mot "; break;
+        case 2: cout << "hai "; break;
+        case 3: cout << "ba "; break;
+        case 4: cout << "bon "; break;
+        case 5:
+            if (b == 0 && c == 0)
+            {
+                cout << "nam ";
+                break;
+            }
+            else
+            {
+                cout << "lam ";
+                break;
+            }
+        case 6: cout << "sau "; break;
+        case 7: cout << "bay "; break;
+        case 8: cout << "tam "; break;
+        case 9: cout << "chin "; break;
+        }
+        if (dem == 3)
+        {
+
+        }
+        if (dem_2 > 6)
+        {
+            if (dem == 1)
+            {
+                cout << "trieu ";
+            }
+            else if (dem == 2)
+            {
+                cout << "nghin ";
+            }
+        }
+        else if (dem_2 < 7 && dem_2 > 3)
+        {
+            if (dem == 1)
+            {
+                cout << "nghin ";
+            }
+        }
+        n = n / 10;
+    }
+}
+int main()
+{
+    int n;
+    do
+    {
+        cout << "Nhap vao so n: ";
+        cin >> n;
+    } while (n < 0 || n > 999999999);   
+    Doc_So(n);  
+    return 0;
+}
+//////////////////////////////////////////////////////
+#include <iostream> 
+using namespace std;
+
+void Xu_li(int n)
+{
+	int count_500 = 0, count_200 = 0, count_100 = 0, count_50 = 0;
+
+	if (n >= 500)
+	{
+		while (n >= 500)
+		{
+			n = n - 500;
+			count_500++;
+		}
+	}
+	while (n >= 200)
+	{
+		n = n - 200;
+		count_200++;
+	}
+	while (n >= 100)
+	{
+		n = n - 100;
+		count_100++;
+	}
+	while (n >= 50)
+	{
+		n = n - 50;
+		count_50++;
+	}
+	if (count_500 != 0)
+	{
+		cout << count_500 << " to 500 ";
+	}
+	if (count_200 != 0)
+	{
+		cout << count_200 << " to 200 ";
+	}
+	if (count_100 != 0)
+	{
+		cout << count_100 << " to 100 ";
+	}
+	if (count_50 != 0)
+	{
+		cout << count_50 << " to 50 ";
+	}
+}
+
+int main()
+{
+	int MAX = 1000;
+	int chon, mat_khau;
+	int n;
+	char x;
+	cout << "\n\n\t\t\t\t\t\tXIN CHAO QUY KHACH\n\n\n";
+	cout << "Xin moi quy khach nhap lua chon de thuc hien.\n\n";
+	cout << "Nhap 1: Thu hien thao tac rut tien.\n\n";
+	cout << "Nhap 2: Thoat.\n\n";
+	cout << "Nhap lua chon: ";
+	cin >> chon;
+
+	if (chon != 2)
+	{
+		cout << "\n\n\t\t\tDE DAM BAO AN TOAN CHO QUY KHACH VUI LONG QUY KHACH NHAP MAT KHAU CUA MINH\n\n\n";
+		do
+		{
+			do
+			{
+				cout << "Nhap mat khau: ";
+				cin >> mat_khau;
+				if (mat_khau != 123456789 || mat_khau < 9999999)
+				{
+					cout << "QUY KHACH NHAP SAI MAT KHAU!!!\n\n";
+					cout << "VUI LONG KIEM TRA LAI.\n\n";
+					cout << "QUY KHACH HAY NHAP LAI MAT KHAU.\n\n\n";
+				}
+			} while (mat_khau != 123456789 || mat_khau < 9999999);
+			cout << "\n\n\t\t\t------------------------- NHAP SO TIEN QUY KHACH CAN RUT -----------------------------\n\n\n";
+			do
+			{
+				cout << "Nhap so tien: ";
+				cin >> n;
+				if (n < 50 || n % 50 != 0 || n > 1000)
+				{
+					cout << "\tSO TIEN BAN NHAP KHONG HOP LE.\n\n";
+					cout << "\tVUI LONG KIEM TRA LAI.\n\n";
+					cout << "\tSO TIEN NHAP PHAI LON HON 50 VA PHAI LA SO CHIA HET CHO 100.\n\n";
+					cout << "Nhap lai so tien: ";
+				}
+			} while (n < 50 || n % 50 != 0 || n > 1000);
+			MAX = MAX - n;
+			if (MAX < 0)
+			{
+				cout << "\nCAY ATM DA HET TIEN.\n";
+				cout << "QUY KHACH VUI LONG DEN DOT SAU NHE.\n\n";
+				break;
+			}
+			cout << "\nSo tien duoc tra nhu sau.\n\n";
+			cout << n << " = ";
+			Xu_li(n);
+			cout << "\n\n\t\t\t\tBAN CO MUON TIEP TUC RUT TIEN KHONG.\n\n";
+			cout << "NEU MUON TIEP TUC RUT TIEN HAY CHON (Y | y).\n\n";
+			cout << "NEU KHONG MUON TIEP TUC RUT TIEN HAY CHON (N | n).\n\n";
+			cout << "NHAP LUA CHON CUA BAN: ";
+			cin >> x;
+
+		} while (MAX >= 0 && (x == 'Y' || x == 'y'));
+	}
+
+}

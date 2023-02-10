@@ -1,0 +1,159 @@
+========================================= BT lý thuyết ========================
+1. So sánh con biến con trỏ và biến thường, trình bày chi tiết các thành phần của biến con trỏ và biến thường
++ Biến thường: Dùng để lưu giá trị ( gồm địa chỉ và vùng nhớ )
+--> cú pháp khai báo: < kiểu dữ liệu > < tên biến > ;
++ Biến con trỏ: dùng để quản lý biến thường ( gồm địa chỉ, giá trị nơi trỏ đến, và miền giá trị )
+--> cú pháp khai báo: < kiểu dữ liệu nơi trỏ đến >* < tên con trỏ > ;
+2. Ta có int a = 5; địa chỉ của a là BAX03
+trình bày luồng chương trình khi gặp lệnh: int *b = &a;
+yêu cầu máy tính khai báo 1 con trỏ với 1 "miền giá trị" ( theo quy ước anh Thành ) có độ lớn 4 byte "trỏ" đến biến a. con trỏ b này chỉ có thể trỏ đến các biến nơi cso kiểu dữu liệu là integer.
+lệnh: cout<<b<<endl;
+in ra màn hình địa chỉ của biến a
+lệnh: cout<<*b<<endl;
+in ra giá trị của biến mà con trỏ b trỏ tới , tức là giá trị của a
+lệnh: float *c = a;
+có 2 lỗi : 
+1 - kiểu dữ liệu nơi con trỏ có thể trỏ được là float trong khi biến a mang kiểu dữ liệu integer ==> không tương thích
+2 - thiếu & trước a , ==> không tương thích
+lệnh: a = 15; //trình bày các sự thay đổi liên quan
+- khi cout<<*b; thì cũng ra kết quả là 15 vì biến a thay đổi tức là giá trị biến mà con trỏ trỏ tới thay đổi (*b thay đổi) - b và a dùng chung vùng nhớ.
+3. trình bày tính chất của biến thường và biến con trỏ trong phạm vi trỏ
+Con trỏ khi sinh ra không có vùng nhớ để lưu giá trị, nếu muốn lưu:
+	Trỏ đến dùng chung với các biến thường -> 1 ông thay đổi -> ông kia thay đổi theo.
+	Tại 1 thời điểm, 1 con trỏ chỉ trỏ đến 1 nơi.
+	Tại 1 thời điểm, 1 biến có thể được nhiều con trỏ trỏ đến.
+4. Lợi ích của con trỏ ?
+        + mảng động
+	+ danh sách liên kết
+	+ stack, queue
+	+ cây nhị phân
+- có nghe a Thành nói qua là tiết kiếm bộ nhớ ( vì con trỏ khai báo kiểu dữ liệu nào thì cũng sẽ ở 4 byte còn vì sao thì em chưa tìm hiểu rõ nghe giang hồ đồn là liên quan bên trong stack) + quản lý được nhiều biến, mảng ...
+5. kích thước con trỏ là bao nhiêu ? trình bày chi tiết ?
+luôn ở 4 byte dù có ở bất kì kiểu dữ liệu nào đi chăng nữa vd:  int, float, ....
+6. trình bày cú pháp của hàm trả về một con trỏ
+<kiểu trả về> *<tên con trỏ><danh sách tham số>;
+========================================= BT vận dụng =============================
+1. Viết chương trình dùng con trỏ quản lí mảng n phần tử. Xuất phần tử lớn nhất và nhỏ nhất trong mảng.
+2. Viết chương trình dùng con trỏ quản lí mảng n phần tử.
+Xuất các phần tử là số nguyên tố
+----------- BT nâng cao ---------
+3. Viết chương trình dùng con trỏ quản lí mảng. Xóa phần tử tại vị trí vt nhập từ bàn phím
+----------
+
+4. Viết chương trình dùng con trỏ quản lí mảng. Thêm phần tử có giá trị x tại vị trí vt nhập từ bàn phím
+----------
+5. Viết chương trình dùng con trỏ quản lí mảng. Sắp xếp các phần tử trong mảng tăng dần.
+==================================================================================================================
+#include <iostream>
+using namespace std;
+#define MAX 100
+
+void nhap_Mang(int a[], int n, int* p);
+void xuat_Mang(int a[], int n, int* p);
+void min_max_Trong_Mang(int a[], int n, int* p);
+void snt_Trong_Mang(int a[], int n, int* p);
+void xoa_Phan_Tu(int a[], int& n, int* p, int vt);
+void them_Phan_Tu(int a[], int& n, int* p, int vt, int gt);
+void sap_Xep_Increase(int a[], int n, int* p);
+
+int main() {
+	int a[MAX];
+	int n, vtx, vtt, gt;
+	int* p = a;
+	do
+	{
+		cout << "Nhap n nguyen duong tu ban phim: "; cin >> n;
+	} while (n<=0);
+	nhap_Mang(a, n, p);
+	xuat_Mang(a, n, p);
+	/*cout <<	endl;
+	min_max_Trong_Mang(a, n, p);
+	snt_Trong_Mang(a, n, p);
+	cout << "\nNhap vi tri can xoa: "; cin >> vtx; cout << endl;
+	xoa_Phan_Tu(a, n, p, vtx);
+	xuat_Mang(a, n, p);
+	cout << "\nNhap vi tri can them: "; cin >> vtt;
+	cout << "\nNhap gia tri can them vao mang: "; cin >> gt; cout << endl;
+	them_Phan_Tu(a, n, p, vtt, gt);
+	xuat_Mang(a, n, p);*/
+	cout << endl;
+	sap_Xep_Increase(a, n, p);
+	xuat_Mang(a, n, p);
+
+	return 0;
+}
+void nhap_Mang(int a[], int n, int* p) {
+	for (int i = 0; i < n; i++)
+	{
+		cout << "Nhap a[" << i << "] = "; cin >> *(p + i); 
+		cout << endl;
+	}
+}
+void xuat_Mang(int a[], int n, int* p) {
+	for (int i = 0; i < n; i++)
+	{
+		cout << *(p + i) << " ";
+	}
+}
+//Cau 1 ================================================
+void min_max_Trong_Mang(int a[], int n, int* p) {
+	int min = *p;
+	int max = *p;
+	for (int i = 1; i < n; i++)
+	{
+		if (*(p + i) < min) {
+			min = *(p + i);
+		}
+		else if (*(p + i) > max) {
+			max = *(p + i);
+			}
+	}
+	cout << "Max la: " << max << " ;Min la: " << min << endl;
+}
+//Cau 2 ================================================
+bool check_SNT(int x) {
+	for (int i = 2; i < x; i++)
+	{
+		if (x % i == 0) {
+			return false;
+		}
+	}
+	return true;
+}
+void snt_Trong_Mang(int a[], int n, int* p) {
+	cout << "\nSo nguyen to trong mang: ";
+	for (int i = 0; i < n; i++)
+	{
+		if (check_SNT(*(p + i)) == true) {
+			cout << *(p + i) << " ";
+		}
+	}
+}
+//Cau 3  ================================================
+void xoa_Phan_Tu(int a[], int& n, int* p, int vtx) {
+	for (int i = vtx; i < n-1; i++)
+	{
+		*(p+i) = *(p + i + 1);
+	}
+	n--;
+}
+//Cau 4 =================================================
+void them_Phan_Tu(int a[], int& n, int* p, int vtt, int gt) {
+	for (int i = n; i > vtt; i--)
+	{
+		*(p + i) = *(p + i - 1);
+	}
+	*(p + vtt) = gt;
+	n++;
+}
+//Cau 5 =================================================
+void sap_Xep_Increase(int a[], int n, int* p) {
+	for (int i = 0; i < n-1; i++)
+	{
+		for (int j = i+1; j < n; j++) {
+			if (*(p + j) < *(p + i)) {
+				swap(*(p + j), *(p + i));
+			}
+		}
+	}
+}

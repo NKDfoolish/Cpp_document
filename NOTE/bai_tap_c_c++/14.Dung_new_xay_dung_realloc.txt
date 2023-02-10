@@ -1,0 +1,73 @@
+//---- BT lý thuyết ----
+1. Trình bày cơ chế chuyên sâu của realloc
+- Nới rộng: B1. Cấp phát vùng nhớ mới (nhiều pt hơn)
+            B2. Sao chép dữ liệu từ vùng nhớ cũ sang vùng nhớ mới
+            B3. Giải phóng vùng nhớ cũ
+                     ---------------------------
+- Thu hẹp: B1. Cấp phát vùng nhớ mới (ít pt hơn)
+           B2. Sao chép dữ liệu từ vùng nhớ cũ sang vùng nhớ mới
+           B3. Giải phóng vùng nhớ cũ
+2. So sánh malloc với calloc
+-giống: đều dùng để cấp phát vùng nhớ
+-khác: malloc() -> mặc định các phần tử là rác , và phải tính toán số byte cụ thể trước khi cấp phát nhiều vùng nhớ
+       calloc() -> mặc định các phần tử là 0 , cấp phát vùng nhớ dễ dàng hơn , đỡ nhớ tính toán trước đó số byte cụ thệ
+3. So sánh realloc với new  (Lần 2 - bắt buộc làm lại)
+- giống: đều dùng để cấp phát
+- khác : new dùng để cấp phát mới
+         realloc vừa có thể dùng để cấp phát mới, vừa dùng để cập nhật lại vùng nhớ đã tồn tại
+4. Trình bày các bước để dùng new xây dựng lại realloc
+-B1. dùng con trỏ tạm giữ địa chỉ của mảng cũ
+-B2. con trỏ hiện tại sẽ đucợ cấp phát mới bằng new
+-B3. sao chép dữ liệu từ con trỏ tạm sang con trỏ hiện tại
+-B4. giải phóng con trỏ tạm
+//---- BT ứng dụng ----
+1. Code mẫu hàm cấp phát lại có cmt chi tiết dưới văn phong của bạn - không cmt ko tính.
+
+#include <iostream>
+using namespace std;
+
+void nhap(int* p, int n);
+void xuat(int* p, int n);
+void cap_Phat_Lai(int*& p, int n_new, int n_old);
+
+int main() {
+	int n, m;
+	do
+	{
+		cout << "\nNhap so luong phan tu n cho mang tu ban phim: "; cin >> n;
+	} while (n<=0);
+	int* p = new int[n];
+	nhap(p, n);
+	xuat(p, 10);
+	cout << "\nNhap so luong phan tu muon thay doi cho mang: "; cin >> m;
+	cap_Phat_Lai(p, m, n);
+	xuat(p, 10);
+	return 0;
+}
+void nhap(int* p, int n) {
+	cout << "\n\t\t=========== Nhap ===========\n";
+	for (int i = 0; i < n; i++)
+	{
+		cout << "\nNhap gia tri cho phan tu thu " << i + 1 << " : "; cin >> *(p + i);
+	}
+}
+void xuat(int* p, int n) {
+	cout << "\n\t\t=========== Xuat ============\n";
+	for (int i = 0; i < n; i++)
+	{
+		cout << *(p + i) << " -> " << (p+i) << endl;
+	}
+}
+void cap_Phat_Lai(int*& p, int n_new, int n_old) {
+	//B1. tao bien con tro tam de luu lai dia chi vung nho cu
+	int* tam = p;
+	//B2. bien con tro hien tai cap phat vung nho moi voi kich thuoc moi
+	p = new int[n_new];
+	//B3. sao chep du lieu tu vung nho cu sang vung nho moi
+	for (int i = 0; i < n_old; i++)
+	{
+		*(p + i) = *(tam + i);
+	}
+	//B4. giai phong bien con tro tam
+	delete[] tam;
+}

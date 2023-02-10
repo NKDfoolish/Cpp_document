@@ -1,0 +1,341 @@
+========================================= BÀI TẬP LUYỆN TẬP NÂNG CAO TƯ DUY LẬP TRÌNH ========================================= 
+Bài 1. Nhập vào số nguyên dương n(n > 0). Viết chương trình kiểm tra xem n có phải là đối xứng hay không ?
+Biết n là số đối xứng hay còn gọi là số thuận nghịch nếu đọc từ trái sang phải hay từ phải sang trái cũng là chính nó.
+Dữ liệu đầu vào                                                     	Dữ liệu đầu ra
+n = 112                                                                	Không phải số đối xứng
+n = 3                                                          	      	Số đối xứng
+n = 1221                                                     	      	Số đối xứng
+
+Bài 2. Nhập vào số nguyên dương n(n > 0). Viết chương trình kiểm tra xem số nguyên dương n có phải là số Amstrong không ? 
+Biết n là số Amstrong khi tổng lũy thừa k của các chữ số của n bằng chính nó(với k là số lượng chữ số của n).
+Dữ liệu đầu vào             						Dữ liệu đầu ra
+n = 135                            					Không phải số Amstrong vì 1^3 + 3^3 + 5^3 khác 135
+n = 9                            					Số Amstrong vì 9^1 bằng  9
+n = 153                         					Số Amstrong vì 1^3 + 5^3 + 3^3 bằng 153
+n = 1634                       						Số Amstrong vì 1^4+6^4+3^4+4^4 bằng 1634
+
+Bài 3. Nhập vào số nguyên dương n(n > 0). Viết chương trình kiểm tra xem n có phải là số nguyên tố hay không ? 
+Biết n được gọi là số nguyên tố khi n chỉ chia hết cho 1 và chính nó
+Dữ liệu đầu vào                                                     	Dữ liệu đầu ra
+n = 2                                                          	      	Số nguyên tố
+n = 3                                                          	      	Số nguyên tố
+n = 1									Không phải số nguyên tố
+n = 17 									Số nguyên tố
+
+Bài 4. Dãy Fibonacci là dãy số mà số tiếp theo là tổng của hai số liền trước. Dãy Fibonacci bắt đầu từ hai số F0 & F1. 
+Giá trị ban đầu của F0 & F1 có thể tương ứng là 0, 1 hoặc 1, 1.
+Cho công thức của dãy Fibonacci như sau:
+F(0) = F(1) = 1
+F(n) = F(n-1) + F(n-2)
+Ta có dãy Fibonacci như sau: 1 1 2 3 5 8 13 21 34 55 89 144....
+Nhập vào số nguyên không âm n, hãy tính Fn ?
+Dữ liệu đầu vào                                                     	Dữ liệu đầu ra
+n = 0                                                	      	      	1
+n = 1                                                          	      	1
+n = 2                                                          	      	2
+n = 3                                                          	      	3
+n = 5                                                          	      	8
+n = 8                                                          	      	34
+
+Bài 5. Nhập vào số nguyên dương h(h > 0). Viết chương trình in ra hình tam giác cân đặc với chiều cao h.
+Dữ liệu đầu vào                                           		Dữ liệu đầu ra
+h = 3                                                                            *
+     	 									***
+    									       *****
+h = 4
+                                                                            	 *
+                                                                  	      	***
+                                                                               *****
+                                                                  	      *******
+
+Bài 6. Nhập vào số nguyên dương h(h > 0). Viết chương trình in ra hình tam giác cân rỗng với chiều cao h.
+Dữ liệu đầu vào                                           		Dữ liệu đầu ra
+h = 3        	                                                        	 *
+                                                                  	       *   *
+        								       *****
+h = 4
+                                                                            	  *
+                                                                  	      	*   *
+                                                                               *     *
+                                                                  	       *******
+
+Bài 7. Nhập vào số nguyên dương n(n > 0). Viết chương trình xuất ra chữ số ở vị trí k bất kỳ tính từ phải sang trái.
+Dữ liệu đầu vào                                           		Dữ liệu đầu ra
+n = 123, k = 2								2
+n = 1029, k = 3								0
+n = 12654, k = 6							KHONG CO
+
+Bài 8. Nhập vào số nguyên dương n(n > 0). Viết chương trình xuất ra chữ số ở vị trí k bất kỳ tính từ trái sang phải.
+Dữ liệu đầu vào                                           		Dữ liệu đầu ra
+n = 123, k = 2								2
+n = 1029, k = 3								2
+n = 12654, k = 6							KHONG CO
+
+Bài 9. Nhập vào số nguyên dương n(n > 0). Viết chương trình tìm chữ số lớn nhất.
+Dữ liệu đầu vào                                           		Dữ liệu đầu ra
+n = 123									3
+n = 91029								9
+n = 9999								KHONG CO
+
+Bài 10. Nhập vào số nguyên dương n(n > 0). Viết chương trình tìm chữ số lớn thứ k
+Dữ liệu đầu vào                                           		Dữ liệu đầu ra
+n = 123, k = 2								2
+n = 91029, k = 3							1
+n = 9999, k = 2								KHONG CO
+
+Bài 11. Nhập vào số nguyên dương n(n > 0). Viết chương trình xuất ra số nguyên dương có chữ số tăng dần từ phải sang trái.
+Dữ liệu đầu vào                                           		Dữ liệu đầu ra
+n = 321									321
+n = 91029								99210
+n = 9999								KHONG CO
+
+Bài 12. Mô tả hoạt động máy rút tiền ATM
+Biết máy ATM bao gồm 4 loại tờ tiền 500, 200, 100 và 50.
+Mỗi loại tờ tiền tương ứng với số lượng tờ tiền cho trước là count_500, count_200, count_100 và count_50. Giả sử máy ATM chứa lượng tiền ban đầu mặc định sẵn là X bất kỳ.
+1. Viết chương trình mô phỏng hoạt động của một máy ATM với chức năng cho phép người dùng nhập vào số tiền cần rút là n.
+2. Người dùng có thể lựa chọn thực hiện chức năng rút tiền cho đến khi máy hết tiền hoặc kết thúc chương trình sau khi hoàn thành thao tác.
+Lưu ý: Số lượng tờ tiền rút phải là ít nhất
+Dữ liệu đầu vào                                           	Dữ liệu đầu ra
+n = 650                                                	   	1 to 500, 1 to 100, 1 to 50
+n = 550                                                	   	1 to 500, 1 to 50
+n = 1500                                              	   	3 to 500
+ 
+3. Nâng cấp bảo mật cho khách hàng bằng cách khởi tạo cho khách hàng mật khẩu mặc định sẵn ban đầu là dãy số tối đa 8 chữ số
+Nếu khách hàng nhập đúng mật khẩu thì mới cho thực hiện các chức năng của máy ATM
+__________________________________________________________________________
+////////////////////////////Bai_1////////////////////////////////////////
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	int sum, temp, n, x;
+	cout << "Nhap n tu ban phim: ";
+	cin >> n;
+	sum = 0;
+	for (temp = n; n != 0; n = n / 10)
+	{
+		x = n % 10;
+		sum = sum * 10 + x;
+	}
+	if (sum == temp)
+	{
+		cout << "\nLa so thuan nghich";
+	}
+	else
+	{
+		cout << "\nLa so khong thuan nghich";
+	}
+
+	return 0;
+}
+
+/////////////////////////////////Bai 2////////////////////////////////
+#include <iostream>
+using namespace std;
+#include <cmath>
+int main()
+{
+    int temp, sum, count, n, x, r;
+    cout << "\nNhap gia tri n tu ban phim: ";
+    cin >> n;
+    temp = n;
+    count = 0;
+    while (n>0)
+    {
+        n = n / 10;
+        ++count;
+    }
+    sum = 0;
+    for (x = temp; x > 0; x = x / 10)
+    {
+        r = x % 10;
+        sum = sum + pow(r, count);
+    }
+    if (sum == temp)
+    {
+        cout << "\nDay la so amstrong";
+    }
+    else
+    {
+        cout << "\nDay khong phai so amstrong";
+    }
+
+    return 0;
+}
+///////////////////Bai_3///////////////////////////////
+#include <iostream>
+using namespace std;
+#include <cmath>
+int main()
+{
+    int n, i;
+    cout << "Nhap n tu ban phim: ";
+    cin >> n;
+    if (n < 2)
+    {
+        cout << "\nKhong phai la so nguyen to";
+    }
+    else if (n == 2)
+    {
+        cout << "\nLa so nguyen to";
+    }
+    else if (n % 2 == 0)
+    {
+        cout << "\nKhong phai la so nguyen to";
+    }
+    else
+    {
+        for (i = 3; i <= n; i=i+2)
+        {
+            if (n % i == 0)
+                break;
+        }
+        if (i == n)
+            cout << "\nLa so nguyen to";
+        else
+            cout << "\nKhong la so nguyen to";
+    }
+
+    return 0;
+}
+/////////////////////////////Bai_5//////////////////////
+#include <iostream>
+using namespace std;
+int main()
+{
+    int n; int q = 0;
+    cout << "Nhap chieu cao cua tam giac can: ";
+    cin >> n;
+    while (n > 0)
+    {
+        for (int i = 1; i < n; i++)
+            cout << " ";
+        for (int k = 0; k <= q; k++)
+            cout << "*";
+        n--;
+        q += 2;
+        cout << "\n";
+    }
+    return 0;
+}
+///////////////////////////Bai_6////////////////////////////
+#include <iostream>
+using namespace std;
+int main()
+{
+    int h;
+    cout << "\nNhap h tu ban phim: ";
+    cin >> h;
+    int m = h, n = h;
+    for (int i = 1; i <= h; i++)
+    {
+        for (int j = 1; j <= 2 * h - 1; j++)
+        {
+            if (j == m || j == n || i == h)
+                cout << "*";
+            else
+                cout << " ";
+        }
+        m--;
+        n++;
+        cout << endl;
+      
+    }
+    return 0;
+}
+
+////////////////////////Bai_7/////////////////////////
+#include <iostream>
+using namespace std;
+
+int main() {
+	int n, k;
+	do 
+	{
+		cout << "\nNhap so nguyen duong n va vi tri k:\n"; 
+		cin >> n >> k;
+	} 
+	while (n <= 0 || k <= 0);
+	int temp = n;
+	int count = 0;
+	while (temp) 
+	{
+		++count;
+		if (count == k) 
+		{
+			cout << "\nVi tri thu " << count << " tu phai sang trai la so: " << temp % 10;
+			break; 
+		}
+		temp /= 10;
+	}
+	if (k > count)
+		cout << "\nVi tri K khong hop le! Vui long nhap lai.";
+}
+///////////////////////////////Bai 8////////////////////////////////////////
+#include <iostream>
+using namespace std;
+
+int main() {
+	int n, k;
+	do 
+	{
+		cout << "\nNhap so nguyen duong n va vi tri k:\n"; 
+		cin >> n >> k;
+	} 
+	while (n <= 0 || k <= 0);
+	int temp = n;
+	int SDN =0;
+	int count = 0;
+	while (temp != 0)
+	{
+		SDN = SDN * 10 + temp % 10;
+		temp = temp / 10;
+	}
+	while (SDN!=0) 
+	{
+		++count;
+		if (count == k) 
+		{
+			cout << "\nVi tri thu " << count << " tu trai sang phai la so: " << SDN % 10;
+			break;
+		}
+		SDN /= 10;
+	}
+	if (k > count)
+		cout << "\nVi tri K khong hop le! Vui long nhap lai.";
+}
+/////////////////////////////////////Bai_9////////////////////////////////////////////////
+#include<iostream>
+using namespace std;
+int main()
+{
+    int n, temp, r;
+    int max = 0;
+    do
+    {
+        cout << "\nNhap vao so nguyen duong n: ";
+        cin >> n;
+    } while (n < 0 && cout << "\nSo n phai lon hon hoac bang 0!");
+    r = n;
+    if (n == 0)
+        max = 0;
+    while (n > 0) {
+        temp = n % 10;
+        n /= 10;
+        if (temp > max)
+            max = temp;
+    }
+    cout << "\nChu so lon nhat trong " << r << " la: " << max;
+    return 0;
+}
+/////////////////////////////Bai_10/////////////////////////////////
++ sap xep lai so do theo chieu cac chu so giam dan
++ dua cac chu so do vao 1 bien moi voi chieu tang dan va khong trung
+	# loc trung bang cach: lay tung so cuoi bo vo bien moi neu so do da lay r thi ko lay nua (vi da sap xep giam dan tu buoc truoc nen auto dung)
++ bay h khi da co bien moi de dang tim duoc so lon thu k (ez game)
+
+///////////////////////////////////////////////Bai_11//////////////////////////////////////////////////////////
++ tim chu so max -> bo max vo 1 bien -> xoa max khoi so ban dau
++ tim trong cac chu so con lai con so nao = max -> neu con thi lay so do bo tiep vao bien chua max dong thoi xoa chu so do khoi so ban dau
++ quay lai buoc dau tien -> den khi xong r thi kiem tra xem so goc nhap tu ban phim co bnh so 0 neu co thi nhan bien da xu ly voi 10^x (x: la so chu so 0 co trong so goc)

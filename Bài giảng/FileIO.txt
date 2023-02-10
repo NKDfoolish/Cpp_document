@@ -1,0 +1,125 @@
+#include iostream
+#include fstream
+using namespace std;
+void doc_file_1(int a[], int& n);
+void doc_file_2(int a[], int& n);
+void xuat(int a[], int n);
+
+int sl_chu_so(int x);
+bool kt_so_amstrong(int x);
+void so_amstrong(int a[], int n);
+void doc_file_3(int a[], int& n);
+
+void main()
+{
+	int a[100]; int n = 0;
+	doc_file_3(a, n);
+	xuat(a, n);
+	so_amstrong(a, n);
+}
+void doc_file_1(int a[], int &n)
+{
+	B1 khai báo biến file
+	ifstream fi;
+	B2 mở file
+	fi.open(input.txt, ios_basein);
+	B3 đọc file
+	fi  n;
+	for (int i = 0; i  n; i++)
+	{
+		fi  a[i];
+	}
+	B4 đóng file
+	fi.close();
+}
+void xuat(int a[], int n)
+{
+	cout  tt=== Xuat ===  endl;
+	for (int i = 0; i  n; i++)
+	{
+		cout  PT thu   i   la   a[i]  endl;
+	}
+}
+void doc_file_2(int a[], int& n)
+{
+	B1 khai báo biến file
+	ifstream fi;
+	B2 mở file
+	fi.open(input.txt, ios_basein);
+	B3 đọc file
+	while (fi.eof() == false)
+	{
+		fi  a[n++];
+	}
+	B4 đóng file
+	fi.close();
+}
+int sl_chu_so(int x)
+{
+	1675
+	int dem = 0;
+	while (x != 0)
+	{
+		tách
+		đếm
+		dem++;
+		vứt
+		x = x  10;
+	}
+	return dem;
+}
+bool kt_so_amstrong(int x)
+{
+	int tam = x;
+	1634
+	int sl = sl_chu_so(x);4
+
+	int gio = 0;
+	while (tam != 0)163
+	{
+		tách
+		int du = tam % 10;3
+
+		Tính tổng lũy thừa
+		gio = gio + pow(du,sl);4^4 + 3^4
+
+		vứt
+		tam = tam  10;16
+	}
+	return (gio == x);
+}
+void so_amstrong(int a[], int n)
+{
+	for (int i = 0; i  n; i++)
+	{
+		if (kt_so_amstrong(a[i])==true)
+		{
+			cout  a[i]  endl;
+		}
+	}
+}
+void doc_file_3(int a[], int& n)
+{
+	B1 khai báo biến file
+	ifstream fi;
+	B2 mở file
+	fi.open(input.txt, ios_basein);
+	B3 đọc file
+	while (fi.eof() == false)
+	{
+		fi  a[n++];
+		
+		char c;
+		fi  c;
+
+		fi.ignore();
+		if (fi.eof() == false)
+		{
+			fi.seekg(1, 1);x	y
+			x Số đơn vị muốn dịch (+) phải, (-) trái
+			y Bắt đầu ở đâu	0bắt đầu	1hiện tại	2 kết thúc
+		}
+	}
+	B4 đóng file
+	fi.close();
+}

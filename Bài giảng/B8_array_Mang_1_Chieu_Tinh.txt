@@ -1,0 +1,26 @@
+//======= Mảng 1 chiều tĩnh ===========
+
+	Mảng - Tập hợp các pt có cùng kdl, nằm liên tiếp nhau trong bộ nhớ.
+
+
+	Cú pháp khai báo:	<kdl> <tên mảng>[<sl pt tối đa>];
+
+		VD: 	int a[10];//Khai báo 1 mảng a có tối đa 10 pt - dùng để lưu trữ số nguyên.
+
++ Ý nghĩa: Lệnh đó có chức năng gì
++ Cơ chế: Lệnh đó hoạt động như thế nào
+
++ Khai báo:  Thông báo cho chương trình biết cái gì đó tồn tại.
++ Khởi tạo: Lưu giá trị lần đầu cho biến
++ Cập nhật giá trị: Thay đổi giá trị sau khi biến được khởi tạo
+
+	int a;//Khai báo 1 biến a - dùng để lưu trữ số nguyên	: Giá trị rác: -85.....
+	a = 5;//Khởi tạo
+	a = 7;//Cập nhật giá trị
+	a = 15;//Cập nhật giá trị
+
++ Địa chỉ: Là một mã hexa phân biệt dùng để hệ điều hành quản lý các ô nhớ, vùng nhớ
+
++ Địa chỉ của biến là gì: là địa chỉ của pt(ô nhớ) đầu tiên trong vùng nhớ mà nó quản lý.
+
++ Vùng nhớ: Tập hợp các ô nhớ liên tiếp nhau.

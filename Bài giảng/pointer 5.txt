@@ -1,0 +1,39 @@
+//---- BT lý thuyết ----
+1. Trình bày cơ chế chuyên sâu của realloc
+	+ Nới rộng:  Tạo vùng nhớ mới với sl vùng nhớ nhiều hơn -> Sao chép dữ liệu qua + giải phóng vùng nhớ cũ
+	+ Thu hẹp:   Tạo vùng nhớ mới với sl vùng nhớ ít hơn -> Sao chép dữ liệu qua + giải phóng vùng nhớ cũ	
+
+2. So sánh malloc với calloc
+	+ Giống: Cấp phát vùng nhớ bên heap cho biến con trỏ
+	+ Khác: malloc: giá trị mặc định là rác, kích thước size(tổng/kdl)
+		calloc: giá trị mặc định là 0, có count - bao nhiêu vùng nhớ, size - 1 vùng	
+
+=> Calloc công nghiệp hơn, malloc nguyên thủy hơn.
+
+
+3. So sánh realloc với new  (Lần 2 - bắt buộc làm lại)
+	+ Giống:	- Cấp phát vùng nhớ heap cho con trỏ
+		- new là cấp phát mới và cơ chế 1 của realloc khi con trỏ chưa có vùng nhớ cũng là cấp phát mới.
+
+	+ Khác:	realloc: ở cơ chế 2 khi pointer có vùng nhớ rồi thì có thể nới rộng hoặc thu hẹp
+
+4. Trình bày các bước để dùng new xây dựng lại realloc
+
+	B1: cho tạm giữ vùng nhớ cũ
+	B2: cấp phát vùng nhớ mới
+	B3: Sao chép dữ liệu từ vùng nhớ cũ qua vùng nhớ mới
+	B4: Giải phóng vùng nhớ cũ
+
+
+//---- BT ứng dụng ----
+1. Code mẫu hàm cấp phát lại có cmt chi tiết dưới văn phong của bạn - không cmt ko tính.
+
+//=========== 3 lưu ý khi sử dụng hàm ===========
+
++ Nếu tham số là biến, ? bên trong có sự thay đổi không, Nếu có ? có muốn lưu không, Nếu có -> Tham chiếu
++ Nếu là hàm lồng hàm, tham số hàm cha trùng tham số hàm con. ? bên trong hàm con có thay đổi không?
+						Nếu có ? có muốn lưu không, Nếu có -> Tham chiếu.
++ Nếu tham số là biến con trỏ:
+	- Nếu thay đổi giá trị -> tự lưu
+	- Nếu thay đổi miền giá trị(ban đầu trỏ đến A, sau đó trỏ đến B) => Hỏi xem có muốn lưu không
+							Nếu có thì tham chiếu.

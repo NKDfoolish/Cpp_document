@@ -1,0 +1,82 @@
+//============== Biến con trỏ =================
+
+Ứng dụng:	+ Mảng động
+		+ DSLk
+		+ stack,queue
+		+ Cây nhị phân
+
+//-------
+	Vùng nhớ:	Dùng để lưu trữ giá trị (int, float, char, bool)
+	Miền giá trị:	Lưu địa chỉ
+
+
+	Biến thường:	+ Địa chỉ:	Nơi sinh ra		&a
+			+ Vùng nhớ: Giá trị			a
+
+
+	Biến con trỏ:	+ Địa chỉ: Nơi sinh ra		&p
+			+ Miền giá trị: Nơi trỏ đến		p
+			+ Giá trị của nơi trỏ đến		*p
+
+
+		Cú pháp khai báo:		<kdl> *<tên biến con trỏ>;
+
+				VD:	int *pointer;
+
+
++ Tích chất:	- Tại 1 thời điểm 1 con trỏ chỉ có thể trỏ đến 1 nơi.
+		- Tại 1 thời điểm 1 biến có thể được nhiều con trỏ trỏ đến.
+
+	Con trỏ khi sinh ra không có vùng nhớ để lưu giá trị, vậy muốn có vùng nhớ để lưu giá trị thì sao:
+			+ Trỏ(lưu địa chỉ) đến biến thường để dùng chung vùng nhớ
+					=> 1 ông thay đổi -> ông kia thay đổi theo.
+			+
+
+//----------------------
+Toán tử lấy địa chỉ:	&	&<Địa chỉ>		&a
+						&p
+	*<địa chỉ>
+_____________________________________________________________________________________________________________
+//====== Biến con trỏ =========
+	
+	+ Vùng nhớ:	Nơi lưu giá trị của biến
+	+ Miền giá trị: Nơi lưu địa chỉ của vùng nhớ mà con trỏ trỏ đến
+
+
+So sánh biến con trỏ và biến thường
+
+
+	+ Biến thường:	Dùng để lưu giá trị
+
+			- Địa chỉ: Nơi sinh ra
+			- Vùng nhớ: giá trị
+
+	+ Biến con trỏ:	Dùng để quản lý biến thường
+
+			- Địa chỉ: Nơi sinh ra
+			- Miền giá trị: Nơi trỏ đến
+			- Giá trị nơi trỏ đến:
+
+
+	Cú pháp khai báo:		<kdl nơi trỏ đến>* <tên biến con trỏ>;
+			VD:	int *p;
+
+Tính chất:
+	Con trỏ khi sinh ra không có vùng nhớ để lưu giá trị, Nếu muốn lưu:
+		+ Trỏ đến dùng chung với các biến thường -> 1 ông thay đổi -> ông kia thay đổi theo.
+		+
+	Tại 1 thời điểm, 1 con trỏ chỉ trỏ đến 1 nơi.
+	Tại 1 thời điểm, 1 biến có thể được nhiều con trỏ trỏ đến.
+
+//---------------------------- Ứng dụng ---------------------
+
+	+ mảng động
+	+ danh sách liên kết
+	+ stack, queue
+	+ cây nhị phân
+
+	
+//------ Con trỏ quản lý mảng  -----------
+
+	int a[5];
+	 int *p  = &a[0];

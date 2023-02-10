@@ -1,0 +1,83 @@
++ Số học
+ - Kiểm tra loại số(Nguyên tố, đối xứng, chính phương,...)
++ Câu lệnh điều kiện - rẽ nhánh
++ Vòng lặp
+ - Duyệt
+ - Tìm kiếm
+ - Liệt kê
+ - Tính tổng
+ - Tính tích..
+ - Tìm min, max
+ - Tách chữ số
+ - Đảo số
+ - Ghép chữ số
+ - Số đối xứng
++ Mảng 1 chiều
+ - Duyệt mảng
+ - Tìm kiếm
+ - Liệt kê
+ - Tính tổng
+ - Tính tích
+ - Tìm min, max (Đặt lính canh)
+ - Kiểm tra mảng (Đặt cờ hiệu)
+ - Đếm
+ - Thống kê tần suất
+ - Đảo mảng
+ - Thêm
+ - Xóa
+ - Sắp xếp
+ - Gộp mảng
+ - Tách mảng
+ - Trộn mảng
+ - Xử lý mảng con
++ Mảng 2 chiều
+ - Giống level0 mảng 1 chiều
+ - Đường chéo chính
+ - Đường chéo phụ
+Các bài nổi trội: Tam giác pascal, Ma trận xoắn ốc,...
++ Xâu/chuỗi
+ - Duyệt chuỗi
+ - Tìm kiếm trên chuỗi
+ - Liệt kê
+ - Thống kê
+ - Thêm
+ - Xóa
+ - Đảo chuỗi
+ - Chuẩn hóa chuỗi
+ - Tương tự mảng 1 chiều(Gộp tách trộn, mảng con)
++ Đọc ghi file
+ - Đọc file cho trước sl phần tử
+ - Đọc file không cho trước sl phần tử
+ - Đọc file không cho trước sl phần tử và phân cách bởi ký tự đặc biệt
+ - Đọc file phức hợp (Chuỗi, số, ký tự đặc biệt)
++ Danh sách liên kết
+ - Định nghĩa
+ - Duyệt, tìm kiếm, liệt kê, tính tổng, tích, tìm min, max, đếm,...
+ - Thêm đầu, cuối
+ - Xóa đầu, cuối
+ - Đọc file cho DSLK
+ - Thêm sau node có data vt
+ - Xóa sau node có data vt
+ - Thêm trước node có data vt
+ - Xóa trước node có data vt
+ - Thêm trước và sau node có data vt
+ - Xóa trước và sau node có data vt
++ Stack, queue
+ - Tự Xây dựng bằng: DSLK/Mảng
+ - Sử dụng thư viện
++ Đệ quy
+ - Xác định công thức đệ quy
+ - Đệ quy tuyến tính (1 lời gọi)
+ - Đệ quy nhị phân (2 lời gọi)
++ Cây nhị phân
+ - Định nghĩa
+ - Thêm
+ - Duyệt, tìm kiếm, liệt kê, tính tổng, tích, tìm min, max,...
+ - Xóa node lá, 1 con
+ - Xóa node 2 con
+ - Đọc ghi file cho cây nhị phân
++ OOP
+ - Trừu tượng
+ - Đóng gói
+ - Kế thừa
+ - Đa hình

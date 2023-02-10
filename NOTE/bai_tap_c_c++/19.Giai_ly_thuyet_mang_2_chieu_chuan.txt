@@ -1,0 +1,38 @@
+1. 	+ Nếu tham số là biến, Hỏi xem có sự thay đổi về giá trị không, Nếu có thì hỏi xem có muốn lưu không.
+								Nếu có thì tham chiếu.
+	+ Nếu là hàm lồng hàm và tham số hàm cha trùng tham số hàm con, Hỏi xem có sự thay đổi trong hàm con không?
+				Nếu có, hỏi xem có muốn lưu không. Nếu có thì tham chiếu.
+	+ Nếu tham số là biến con trỏ:
+			+ Nếu thay đổi giá trị -> Tự lưu
+			+ Nếu thay đổi miền giá trị: Hỏi xem có muốn lưu không, Nếu có thì tham chiếu.
+
+2. Con trỏ sinh ra không có vùng nhớ để lưu giá trị. Nếu muốn lưu
+	+ Trỏ đến biến thường -> dùng chung (Nếu 1 thằng thay đổi -> Thằng kia thay đổi theo)
+	+ Cấp phát bên heap (realloc(), malloc(), calloc(), new)
+
+3. Cấp phát mới là tạo mới vùng nhớ cho con trỏ quản lý => Mất data cũ.
+4.	B1: tạm giữ nhà cũ
+	B2: mua nhà mới
+	B3: tạm dời đồ qua
+	B4: giải phóng tạm
+
+5. Nếu truyền dưới dạng tham trị (Không có &). => Tạo bản sao *p' cùng miền giá trị với *p nhưng khác địa chỉ.
+	=> Nếu thay đổi miền giá trị là thay đổi của *p' (Cho *p' trỏ đi nơi khác), Đâu ảnh hướng đến bản gốc (*p)
+
+Vậy nếu muốn thay đổi có ảnh hướng đến bản gốc thì ta nên truyền tham chiếu (Có &).
+
+
+6.		malloc()
+		calloc()
+		realloc()
+		new
+	+ Điểm chung: 
+		+ Tất cả đều cấp phát vùng nhớ bên heap cho biến con trỏ
+		+ malloc() calloc() new là cấp phát mới
+
+	+ Riêng: realloc() có 2 cơ chế: Cơ chế 1 khi chưa cấp phát thì sẽ cấp phát mới(Giống các ông kia)
+				Cơ chế 2: Khi có vùng nhớ rồi -> Nới rộng hoặc thu hẹp
+
+	calloc() Mang tính công nghiệp hơn: Có count vùng nhớ, mỗi vùng nhớ size byte, và mặc định giá trị là 0.
+
+//================= Code =================

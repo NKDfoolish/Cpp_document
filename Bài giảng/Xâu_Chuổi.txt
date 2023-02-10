@@ -1,0 +1,52 @@
+j
+	 0  1  2  3  4
+i
+0	 0  1  1  1  1		j == i => 0
+1	-1  0  1  1  1		j > i   Phía trên
+2	-1 -1  0  1  1		j < i   Phía dưới
+3	-1 -1 -1  0  1
+4	-1 -1 -1 -1  0
+
+//========== Xâu, chuỗi ===========
+
+	C:	Xâu	Mảng kí tự:	char []
+
+	C++: 	Chuỗi	thư viện 		string
+
+//---- Cú pháp khai báo xâu:
+			char <tên xâu>[<sl pt tối đa>];
+
+			VD: char c[10];	//9 kí tự + 1 kí tự \0
+
+		//	\0 là kí tự kết thúc xâu
+
++ Khởi tạo:	- trực tiếp - khởi tạo tất các giá trị còn lại là '\0'
+
+		- lần lượt: Dùng cin	=> VD: cin>>c;	KQ: hello\0	Lưu ý: chỉ có 1 \0
+
+
+	Cơ chế của cin:	Chỉ nhận kí tự không nhận khoảng trắng, xuống dòng.
+
+	Cơ chế của gets:	Nhận kí tự và khoảng trắng cho đến khi gặp \n
+						(Bỏ qua \n - lấy \n ra khỏi bnđ nhưng không giao cho biến)
+
+				cong thanh\n
+
+	Cơ chế chuyên sâu gets:
+		
+B1: Chạy vô bộ nhớ đệm kiểm tra:  	Nếu bộ nhớ đệm có phần tử	=> Lấy và giao cho biến
+				Nếu bộ nhớ đệm rỗng	=> B2: yêu cầu nhập vào rồi quay lại B1
+
+
+Lỗi trôi lệnh: 	Trôi lệnh nhập
+Nguyên nhân:	Thừa bộ nhớ đệm
+Giải pháp:	Xóa bộ nhớ đệm
+		
+		+ fflush(stdin):	Sai bản chất	rewind(stdin)
+		+ while(getchar()!='\n');
+			
+		+cin.ignore();
+		+cin.clear();
+
+
+		Biểu hiện -> Nguyên nhân -> Giải pháp

@@ -1,0 +1,163 @@
+//========================= BT LT ==================
+1. C: các hàm cấp phát nằm ở thư viện nào ?
+-> thư viện stdlib.h
+2. C: nguyên mẫu hàm của các hàm cấp phát
+-> void* malloc(int size);
+   void * calloc(int count, int size);
+   void* realloc(void* p, int size);
+3. C: ứng dụng: lời gọi hàm
+-> cấp phát vùng nhớ 
+   Bộ nhớ được cấp phát trong quá trình chạy chương trình.
+   Cho phép quản lý, phân bổ hay giải phóng bộ nhớ trong khi chạy chương trình
+   Chỉ cấp phát vùng nhớ khi cần sử dụng tới
+   Chương trình chạy chậm hơn so với cấp phát tĩnh
+   Tiết kiệm được không gian bộ nhớ sử dụng
+4: C: cơ chế hoạt động của từng hàm ?
+-> malloc : Cấp phát 1 vùng nhớ bên heap có size byte và trả về.
+   calloc : Cấp phát 1 vùng nhớ lớn có count vùng nhớ nhỏ, mỗi vùng nhớ size byte và trả về. Giá trị mặc định là 0.
+   realloc: + Nếu p chưa có vùng nhớ, => cấp phát mới <=> malloc (Cấp phát 1 vùng nhớ lớn bên heap có kích thước tổng là size byte)
+            + Nếu p có vùng nhớ -> Dựa vào size cũ và size mới để nới rộng hoặc thu hẹp
+5: C++: cơ chế hoạt động của toán tử new
+-> Toán tử new tạo ra đối tượng mà sẽ sử dụng phần bộ nhớ được cấp phát, và sau đó trả về một con trỏ chứa địa chỉ của phần bộ nhớ đã được cấp phát.
+   Thông thường, chúng ta sẽ gán giá trị trả về của toán tử new cho một biến con trỏ để sau này chùng ta có thể truy cập vào phần bộ nhớ được cấp phát.
+6: Nhận xét hàm realloc và new , giống và khác nhau ?
+-> giống : đều dùng để cấp phát vùng nhớ
+   khác : realloc thay đổi kích thước vùng nhớ đc còn new thì không; new ở c++ còn realloc ở c; realloc phải tính toán kích thước dữ liệu còn new tự động tính toán kiểu dữ liệu được truyền vào; realloc là hàm còn new là toán tử, realloc trả về con trỏ void còn new sẽ gọi hàm khởi tạo của đối tượng được cấp phát nếu đó là class, kiểu con trỏ là kiểu của đối tượng được cấp phát.
+//========== BT CODE ===
+DÙNG MẢNG ĐỘNG GIẢI CÁC BÀI TẬP BÊN DƯỚI.
+1. Tìm x nhập từ bàn phím có tồn tại trong mảng không
+2. Tính tổng các pt âm
+3. Liệt kê các pt là số đối xứng.
+4. Kiểm tra mảng toàn dương
+5. Thêm pt 0 trước số đối xứng
+----- Đây chỉ là bài cơ bản, các bạn nên luyện thêm bt mảng lv2 giải bằng mảng động ====
+=======================================================================================================
+#include <iostream>
+#include <stdlib.h>
+using namespace std;
+
+void nhap_Mang(int n, int* p);
+void xuat_Mang(int n, int* p);
+void tim_X_Ton_Tai(int n, int* p, int x);
+void tong_Cac_Phan_Tu_Am(int* p, int n);
+void liet_Ke_SDX(int* p, int n);
+void kiem_tra_mang_toan_duong(int* p, int n);
+void them_0_truoc_sdx(int* p, int &n);
+
+int main() {
+	int n, x = 0;
+	int* p = NULL;
+	do
+	{
+		cout << "\nNhap so luong phan tu n tu ban phim: "; cin >> n;
+	} while (n<=0);
+	p = (int*)calloc(n, sizeof(int));
+	nhap_Mang(n, p);
+	xuat_Mang(n, p);
+
+	//cout << "\nNhap gia tri can tim x tu ban phim: "; cin >> x;
+	cout << endl;
+	//tim_X_Ton_Tai(n, p, x);
+	//tong_Cac_Phan_Tu_Am(p, n);
+	//liet_Ke_SDX(p, n);
+	//kiem_tra_mang_toan_duong(p, n);
+	them_0_truoc_sdx(p, n);
+	xuat_Mang(n, p);
+	return 0;
+}
+void nhap_Mang(int n, int* p) {
+	cout << "\n\n\t\t================ Nhap Mang =================\n";
+	for (int i = 0; i < n; i++)
+	{
+		cout << "\nNhap phan tu thu " << i + 1 << " : "; cin >> *(p + i);
+	}
+}
+void xuat_Mang(int n, int* p) {
+	cout << "\n\n\t\t================ Xuat Mang =================\n";
+	for (int i = 0; i < n; i++)
+	{
+		cout << *(p + i) << " ";
+	}
+}
+//Cau1===============================================
+void tim_X_Ton_Tai(int n, int* p, int x) {
+	for (int i = 0; i < n; i++)
+	{
+		if (*(p + i) == x) {
+			cout << x << " co ton tai trong mang";
+			return;
+		}
+	}
+	cout << x << " khong ton tai trong mang";
+}
+//Cau2================================================
+void tong_Cac_Phan_Tu_Am(int* p, int n) {
+	int tong = 0;
+	for (int i = 0; i < n; i++)
+	{
+		if (*(p + i) < 0) {
+			tong = tong + *(p + i);
+		}
+	}
+	cout << "\nTong cac phan tu am la: " << tong;
+}
+//Cau3=================================================
+bool check_SDX(int x) {
+	int temp = x;
+	int box = 0;
+	while (x!=0)
+	{
+		box = box * 10 + (x%10);
+		x = x / 10;
+	}
+	if (temp == box) {
+		return true;
+	}
+	else {
+		return false;
+	}
+}
+void liet_Ke_SDX(int* p, int n) {
+	cout << "\nSo doi xung la: ";
+	for (int i = 0; i < n; i++)
+	{
+		if (check_SDX(*(p + i)) == true) {
+			cout << *(p + i) << " ";
+		}
+	}
+}
+//Cau4==============================================
+void kiem_tra_mang_toan_duong(int* p, int n) {
+	bool flag = true;
+	for (int i = 0; i < n; i++)
+	{
+		if (*(p + i) <= 0) {
+			flag = false;
+			break;
+		}
+	}
+	if (flag == true) {
+		cout << "\nMang toan duong";
+	}
+	else if (flag == false) {
+		cout << "\nMang khong toan duong";
+	}
+}
+//Cau5=============================================
+void them(int* p, int& n,int x, int vt) {
+	for (int i = n; i > vt; i--)
+	{
+		*(p + i) = *(p + i - 1);
+	}
+	*(p + vt) = x;
+	n++;
+}
+void them_0_truoc_sdx(int* p, int &n) {
+	for (int i = 0; i < n; i++)
+	{
+		if (check_SDX(*(p + i)) == true) {
+			them(p, n, 0, i);
+			i++;
+		}
+	}
+}

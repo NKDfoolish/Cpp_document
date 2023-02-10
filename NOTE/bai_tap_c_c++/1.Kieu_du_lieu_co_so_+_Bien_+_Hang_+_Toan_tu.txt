@@ -1,0 +1,155 @@
+Các em áp dụng các kiến thức đã học phần kiểu dữ liệu cơ sở, biến hằng và các loại toán tử để làm các bài tập sau nha
+Lưu ý: Không dùng kiến thức ngoài buổi học hôm nay
+=============== Bài 1 ===============
+int a = 5;
+int b = 4;
+int c = 3;
+int d;
+d = (++a) + (b++) + 6;
+c = (d++) - (b++);
+a = (--c) * (d++) - (b++);
+a = ?
+b = ?
+c = ?
+d = ?
+=============== Bài 2 ===============
+int a = 6;
+int b = 5;
+int c = 2;
+b += c;
+b *= c;
+int d = 5;
+d = (b--) - (c++);
+d = (++b) + (--c) – a++;
+a = ?
+b = ?
+c = ?
+d = ?
+=============== Bài 3 ===============
+int d = 4;
+int a = 4;
+int c = (d += (a++) * 5);
+c /= (d++) + (a--);
+int b = (c++ - ++d) * a++;
+a = ?
+b = ?
+c = ?
+d = ?
+=============== Bài 4 ===============
+int b = 4;
+b = b++ + ++b;
+b = ?
+=============== Bài 5 ===============
+Nhập vào 2 phần tử số nguyên. Viết chương trình tìm phần tử lớn nhất
+Dùng ít nhất 3 cách khác nhau
+=============== Bài 6 ===============
+Nhập vào 2 biến tháng và năm. Xuất ra số ngày của tháng đó
+Gợi ý:
+- Năm nhuận là năm chia hết cho 4 và không chia hết cho 100, hoặc là chia hết cho 400
+- Những tháng có
++ 30 ngày: 4 6 9 11
++ 31 ngày: 1 3 5 7 8 10 12
+- Tháng 2 là tháng đặc biệt
++ 28 ngày: năm không nhuận
++ 29 ngày: năm nhuận
+____________________________________________________________________________
+
+=============== Bài 1 ===============
+int a = 5;
+int b = 4;
+int c = 3;
+int d;
+d = (++a) + (b++) + 6;
+===>>> a=6; b=4; d=16
+
+c = (d++) - (b++);
+===>>> d=16; b=5; c=11
+
+a = (--c) * (d++) - (b++);
+===>>> c=10; d=17; b=6; a=164
+=============== Bài 2 ===============
+int a = 6;
+int b = 5;
+int c = 2;
+b += c;--->b=b+c=7
+b *= c;--->b=b*c=10
+int d = 5;
+d = (b--) - (c++);--->d=10-2=8
+d = (++b) + (--c) – a++;--->d=10+2=12
+=============== Bài 3 ===============
+int d = 4;
+int a = 4;
+int c = (d += (a++) * 5);--->c=d=4+4*5=24
+c /= (d++) + (a--);--->c=24/(24+5)=0
+int b = (c++ - ++d) * a++;--->b=(0-26)*4=-104
+=============== Bài 4 ===============
+int b = 4;
+b = b++ + ++b;
+--->b = 4+5=9
+=============== Bài 5 ===============
+Nhập vào 2 phần tử số nguyên. Viết chương trình tìm phần tử lớn nhất
+Dùng ít nhất 3 cách khác nhau
+
+--->
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	/*
+	int a, b;
+	cout << "Nhap vao so nguyen a: ";
+	cin >> a;
+	cout << "\nNhap vao so nguyen b: ";
+	cin >> b;
+	cout << "\nSo lon nhat la: " << (((a - b) > 0) ? a : b);
+	*/
+
+	/*
+	int a, b;
+	cout << "Nhap vao so nguyen a: ";
+	cin >> a;
+	cout << "\nNhap vao so nguyen b: ";
+	cin >> b;
+	int c = (((a - b) > 0) ? a : b);
+	cout << "\nSo lon nhat la :" << c;
+	*/
+
+	int a, b;
+	cout << "Nhap vao so nguyen a: ";
+	cin >> a;
+	cout << "\nNhap vao so nguyen b: ";
+	cin >> b;
+	cout << "\nSo lon nhat la: " << ((a > b) ? a : b);
+
+	return 0;
+}
+=============== Bài 6 ===============
+Nhập vào 2 biến tháng và năm. Xuất ra số ngày của tháng đó
+Gợi ý:
+- Năm nhuận là năm chia hết cho 4 và không chia hết cho 100, hoặc là chia hết cho 400
+- Những tháng có
++ 30 ngày: 4 6 9 11
++ 31 ngày: 1 3 5 7 8 10 12
+- Tháng 2 là tháng đặc biệt
++ 28 ngày: năm không nhuận
++ 29 ngày: năm nhuận
+
+--->
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	int month, year;
+	cout << "Nhap thang: ";
+	cin >> month;
+	cout << "\nNhap nam: ";
+	cin >> year;
+	int x = ((month == 4 || month == 6 || month == 9|| month == 11)  ? 30 : (month == 2) ? 29 : 31);
+	int y = ((month == 4 || month == 6 || month == 9 || month == 11) ? 30 : (month == 2) ? 28 : 31);
+	cout << "\nSo ngay trong thang la: " << (( ((year % 4 == 0) && (year % 100 != 0)) || year % 400 == 0) ? x : y);
+	( ((year % 4 == 0) && (year % 100 != 0)) || year % 400 == 0) ? cout << "\nDay la nam nhuan." : cout << "\nDay la nam khong nhuan.";
+
+	return 0;
+}

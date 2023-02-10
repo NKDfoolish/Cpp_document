@@ -1,0 +1,15 @@
+1. Chương trình sẽ làm gì khi gặp lệnh khai báo: int a;
+- Hệ điều hành sẽ cấp phát cho máy tính 1 vùng nhớ với độ lớn 4 byte, có tên là a, để quản lý, lưu trữ dữ liệu (cụ thể là lưu trữ số nguyên).
+2. Không xem tài liệu, liệt kê các kiến thức mà bạn học được từ buổi hôm trước. (Càng chi tiết càng tốt)
+Không có BT ứng dụng.
+- Mảng là tập hợp các phần tử có cùng kiểu dữ liệu và nằm liên tiếp với nhau trong bộ nhớ.
+- Cú pháp khai báo:
+                <Kiểu dữ liệu><Tên mảng>[<Số lượng phần tử tối đa>];
+- Địa chỉ là một mã hexa riêng biệt mà từ đó hệ điều hành có thể dễ dàng quản lý các ô nhớ, vùng nhớ.
+- Địa chỉ của biến mảng là địa chỉ của phần tử (ô nhớ) đầu tiên trong vùng nhớ mà biến mảng đó quản lý.
+- Vùng nhớ: tập hợp các ô nhớ nằm liên tiếp nhau trong bộ nhớ của máy tính.
+                      ---------------------------------------------
+- Khai báo: thông báo cho chường trình biết có cái gì đó tồn tại.
+- Khởi tạo: lưu giá trị lần đầu cho biến.
+- Cập nhật giá trị: thay đổi giá trị sau khi biến được khởi tạo.
++ Ban đầu khi mới khai báo biến, biến đó sẽ mang một giá trị ngẫu nhiên (hay còn gọi là giá trị rác).

@@ -1,0 +1,91 @@
+1. Trình bày 3 lưu ý khi sử dụng hàm:	1đ
+	+ Nếu tham số là biến, ? bên trong có sự thay đổi không, Nếu có ? có muốn lưu không, Nếu có -> Tham chiếu
+        + Nếu là hàm lồng hàm, tham số hàm cha trùng tham số hàm con. ? bên trong hàm con có thay đổi không? Nếu có ? có muốn lưu không, 
+          Nếu có -> Tham chiếu.
+        + Nếu tham số là biến con trỏ:
+	- Nếu thay đổi giá trị -> tự lưu
+	- Nếu thay đổi miền giá trị(ban đầu trỏ đến A, sau đó trỏ đến B) => Hỏi xem có muốn lưu không .Nếu có thì tham chiếu.
+2. Biến con trỏ sinh ra không có vùng nhớ để lưu giá trị,
+Thế muốn lưu giá trị thì phải làm sao ? (2 cách)	1đ
+	+ trỏ đến biến khác để dùng chung vùng nhớ
+	+ cấp phát vùng nhớ cho biến con trỏ
+3. Cấp phát mới là gì ?			0.5đ
+- là yêu cầu máy tính cấp phát 1 vùng nhớ mới, có kích thước do người dùng xác định để con trỏ quản lý và lưu trữ dữ liệu.
+4. Trình bày các bước xây dựng hàm realloc		0.5đ
+        B1: cho tạm giữ vùng nhớ cũ
+	B2: cấp phát vùng nhớ mới
+	B3: Sao chép dữ liệu từ vùng nhớ cũ qua vùng nhớ mới
+	B4: Giải phóng vùng nhớ cũ
+5. Tại sao phải tham chiếu khi muốn lưu sự thay đổi miền giá trị của biến con trỏ ?	1đ
+	- Nếu thay đổi miền giá trị(ban đầu trỏ đến A, sau đó trỏ đến B) => Hỏi xem có muốn lưu không. Nếu có thì tham chiếu.
+=> tham chiếu để có thể tương tác với bản gốc
+6. So sánh: malloc, calloc, realloc và new
+(Cái nào khác biệt với nhau và khác biệt như thế nào)	1đ
+
+        @ malloc với calloc
+	+ Giống: Cấp phát vùng nhớ bên heap cho biến con trỏ
+	+ Khác: malloc: giá trị mặc định là rác, kích thước size(tổng/kdl)
+		calloc: giá trị mặc định là 0, có count - bao nhiêu vùng nhớ, size - 1 vùng	
+                           ----------------------------------------------------------
+        @ realloc với new
+	+ Giống:- Cấp phát vùng nhớ heap cho con trỏ
+		- new là cấp phát mới và cơ chế 1 của realloc khi con trỏ chưa có vùng nhớ cũng là cấp phát mới.
+
+	+ Khác:	realloc: ở cơ chế 2 khi pointer có vùng nhớ rồi thì có thể nới rộng hoặc thu hẹp
+
+_____________________________________________________________________________________________________
+Code:
+	1. Xây dựng hàm thêm trong mảng động 		1.5đ
+	2. Xây dựng hàm xóa trong mảng động 		1.5đ
+         ---------------------------------------------------------
+void cap_phat_lai(int*& p, int ncu, int nmoi)
+{
+	
+	int* tam = p;
+	
+	p = new int[nmoi];
+
+	for (int i = 0; i < ncu; i++)
+	{
+		p[i] = tam[i];
+	}
+	
+	if (tam != NULL)
+	{
+		delete[] tam;
+	}
+}
+void them(int*& p, int& n, int vt, int x)
+{
+
+	cap_phat_lai(p, n, n + 1);
+
+	for (int i = n; i > vt; i--)
+	{
+		p[i] = p[i - 1];
+	}
+	p[vt] = x;
+	n++;
+}
+void xoa(int*& p, int& n, int vt)
+{
+
+	for (int i = vt; i < n - 1; i++)
+	{
+		p[i] = p[i + 1];
+	}
+
+	cap_phat_lai(p, n - 1, n - 1);
+	n--;
+}
+_______________________________________________________________________________________
+	3. Xây dựng hàm gộp mảng a vào đầu mảng b	2đ
+		gop_vao_dau(int *a,int na, int *b,int nb)
+          ------------------------------------------------------
+void gop_vao_dau(int* a, int na, int* b, int &nb) {
+	for (int i = na - 1; i >= 0; i--)
+	{
+		them(b, nb, 0, a[i]);
+	}
+}
+--------------------------------------------------------------------------------

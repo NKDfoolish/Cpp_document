@@ -1,0 +1,19 @@
+LT: 1. Trình bày cơ chế khi lưu gí trị 7 vào 1 biến số nguyên a.
+VD: int a = 7;
+Giá trị sẽ được lưu thế nào trong bộ nhớ (Ram)
+
+- Ban đầu hệ điều hành sẽ cấp phát cho 1 vùng nhớ ngẫu nhiên chưa được sử dụng có độ lớn 4 byte với tên đại diện là a. Biến a quản lý và lưu trữ dữ liệu kiểu số nguyên. lúc này biến a sẽ mang giá trị rác. Sau đó khi cập nhật giá trị là 7, số rác sẽ bị xóa đi và số 7 sẽ được lưu trữ (ghi đè) trong bộ nhớ cụ thể là trong các ô nhớ của vùng nhớ dưới dạng mã nhị phân. Mỗi ô nhớ là 1 byte tương dương bằng 8 bit và sẽ đổ lần lượt mã nhị phân vào.
+
+2. Nếu giá trị lưu vào vượt quá kích thước vùng nhớ thì như nào?
+
+- Sẽ dẫn đến việc bị tràn bộ nhớ.
+
+3. Bạn đã học được gì kiến thức gì từ bài này?
+
+- Cách mà dữ liệu được lưu trữ trong bộ nhớ dưới dạng mã nhị phân.
+- Địa chỉ của mảng là địa chỉ của vùng nhớ đầu tiên trong mảng.
+- Cách duyệt mảng, nhập mảng, xuất mảng.
+- Khi khởi tạo trực tiếp giá trị cho mảng nếu như không truyền vào đủ phần tử so với số phần tử tối đa của mảng thì các phần tử bị thiếu sẽ mặc định là 0.
+- Khai báo mảng bình thường thì mảng sẽ chứa các giá trị rác ứng với số phần tử tối đa.
+- Khởi tạo trực tiếp cho mảng khi biết trước số lượng phần tử và các giá trị cụ thể tương ứng.
+- Khởi tạo lần lượt = Duyệt + Nhập.

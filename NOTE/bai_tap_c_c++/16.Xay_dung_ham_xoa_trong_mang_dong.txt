@@ -1,0 +1,87 @@
+1.  Tại sao phải tham chiếu, nếu tham chiếu thì nó sẽ như thế nào ?
+- nếu là biến thường => thay đổi giá trị => nếu muốn lưu thì tham chiếu
+- nếu là biến con trỏ => thay đổi giá trị => tự lưu
+  thay đổi về miền giá trị ( ban đầu trỏ đến A sau đó trỏ đến B ), không lưu được.
+  => muốn lưu sự thay đổi đó phải tham chiếu
+2. Tại sao không tham chiếu, Nếu không tham chiếu thì sẽ như thế nào?
+- thay đổi giá trị không cần tham chiếu vì nó tự lưu ( do bản sao dùng chung )
+- tạo bản sao dùng chung vùng nhớ -> 1 ông thay đổi ông kia thay đổi theo
+
+-------------------------------------------------------------------------------
+3 lưu lý khi sử dụng hàm:
++ nếu tham số là biến, ? có thay đổi không, nếu có ? có muốn lưu không? => tham chiếu
++ nếu là hàm lồng hàm, tham số hàm cha trùng tham số hàm con ? trong hàm con có thay đổi không, nếu có ? có muốn lưu không nếu có thì tham chiếu
++ nếu là biến con trỏ: thay đổi giá trị => tự lưu
+                       thay đổi miền giá trị => ? có muốn lưu không nếu có thì tham chiếu
+
+--------------------------------------------------------------------------------
+Code:
+3. Xây dựng hàm xóa trong mảng động
+--------------------------------------------------------------------------
+#include <iostream>
+using namespace std;
+void nhap(int* p, int n);
+void xuat(int* p, int n);
+void cap_phat_lai(int* &p, int ncu, int nmoi);
+void xoa(int*& p, int& n, int vt);
+
+void main()
+{
+
+	int n = 3;
+	int* p = new int[n];
+	nhap(p, n);
+	xuat(p, 10);
+
+	xoa(p, n, 2);
+
+	xuat(p, 10);
+
+}
+void nhap(int* p, int n)
+{
+	cout << "\t\t===== Nhap ===" << endl;
+	for (int i = 0; i < n; i++)
+	{
+		cout << "Nhap pt thu " << i << ": "; cin >> p[i];
+	}
+}
+void xuat(int* p, int n)
+{
+	cout << "\t\t===== Xuat ===" << endl;
+	for(int i=0;i<n;i++)
+	{
+		cout << "PT thu " << i << " la: " << p[i] << endl;
+	}
+}
+//		int *p' = p,	Cùng miền giá trị nhưng khác địa chỉ
+
+void cap_phat_lai(int *&p,int ncu,int nmoi)
+{
+	//B1: Cho tạm giữ đc nhà cũ
+	int* tam = p;//NULL
+	//B2: Mua nhà mới
+	p = new int[nmoi];//Thay đổi miền giá trị
+
+	//B3: Dời đồ từ nhà cũ qua nhà mới
+	for (int i = 0; i < ncu; i++)
+	{
+		p[i] = tam[i];
+	}
+	//B4: Giải tỏa nhà cũ
+	if (tam != NULL)
+	{
+		delete tam;
+	}
+}
+void xoa(int* &p, int &n, int vt)
+{
+	//B1: xóa
+	for (int i = vt; i < n - 1; i++)
+	{
+		p[i] = p[i + 1];
+	}
+        //B2: thu hẹp rộng         
+        cap_phat_lai(p, n - 1, n - 1);              //giảm vùng nhớ(sl pt tối đa)		//Có thay đổi miền giá trị
+	n--;                                     //Giảm số pt hiện tại		        //Có thay đổi giá trị
+}

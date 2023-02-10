@@ -1,0 +1,191 @@
+#include<iostream>
+#define MAX 100
+using namespace std;
+//=============================
+void nhap(int a[], int n);
+void xuat(int a[], int n);
+bool kt_sdx(int x);
+void xoa(int a[], int& n, int vt);
+void xoa_pt_la_sdx(int a[], int &n);
+//------------------
+void them(int a[], int& n, int vt, int x);
+void them_0_truoc_so_hoan_thien(int a[], int& n);
+//-------
+void xoa_trung(int a[], int& n);
+//----
+void thong_ke_tan_suat(int a[], int n);
+void main()
+{
+	int a[MAX]; int n = 0;
+	do
+	{
+		cout << "Nhap n: "; cin >> n;
+	} while (n <= 0 || n > MAX);
+	//--------
+	nhap(a, n);
+	xuat(a, n);
+	//xoa_pt_la_sdx(a, n);
+	//them_0_truoc_so_hoan_thien(a, n);
+	//xoa_trung(a, n);
+	thong_ke_tan_suat(a, n);
+
+	//xuat(a, n);
+}
+void nhap(int a[], int n)
+{
+	cout << "\t\t===== Nhap ===" << endl;
+	for (int i = 0; i < n; i++)
+	{
+		cout << "Nhap pt thu " << i << ": "; cin >> a[i];
+	}
+}
+void xuat(int a[], int n)
+{
+	cout << "\t\t===== Xuat ===" << endl;
+	for (int i = 0; i < n; i++)
+	{
+		cout << "Pt thu " << i << " la: " << a[i] << endl;
+	}
+}
+int dao_so(int x)// = Tách + ghép
+{
+	//x = 123		=>	3	2	1
+	int a = 0;
+	while (x != 0)//0
+	{
+		//Tách
+		int du = x % 10;//1
+
+		//------ Tách để làm gì ? -----
+		a = a * 10 + du;//=321
+
+		//Vứt
+		x = x / 10;//0
+	}
+	//x đã bằng 0
+	return a;
+}
+bool kt_sdx(int x)
+{
+	if (x <= 0)
+	{
+		return false;
+	}
+	if (dao_so(x) == x)
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}
+void xoa(int a[], int &n, int vt)
+{
+	//B1: Dời
+	for (int i = vt; i < n - 1; i++)
+	{
+		a[i] = a[i + 1];//pt hiện tại = pt phía sau.
+	}
+	//B2: giảm
+	n--;//Có thay đổi
+}
+void xoa_pt_la_sdx(int a[], int &n)
+{
+	//	12	123	46		
+	//	0	1	2	3	4
+	//				i
+	for (int i = 0; i < n; i++)
+	{
+		if (kt_sdx(a[i]) == true)
+		{
+			xoa(a, n, i);//Có thay đổi
+			i--;//Lùi - tránh sót pt
+		}
+	}
+}
+//--------------------------
+void them(int a[], int &n, int vt, int x)
+{
+	//B1: Dời
+	for (int i = n; i > vt; i--)
+	{
+		a[i] = a[i - 1];
+	}
+	//B2: Chèn
+	a[vt] = x;
+	//B3: Tăng
+	n++;//Có thay đổi
+}
+int tong_cac_uoc(int x)//10: 1 + 2 + 5 + 10
+{
+	int gio = 0;
+	//x = 10:	1 2 3 4 5 6 7 8 9 10
+	for (int i = 1; i <= x; i++)
+	{
+		if (x % i == 0)//i là ước của i
+		{
+			gio = gio + i;
+		}
+	}
+	return gio;
+}
+bool kt_so_hoan_thien(int x)
+{
+	if (x <= 1)
+	{
+		return false;
+	}
+	if (tong_cac_uoc(x) - x == x)
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}
+void them_0_truoc_so_hoan_thien(int a[], int &n)
+{
+	//	-4	0	0	0	6	15	2	1
+	//	0	1	2	3	4
+	//				i
+	for (int i = 0; i < n; i++)
+	{
+		if (kt_so_hoan_thien(a[i]) == true)
+		{
+			them(a, n, i, 0);//Có thay đổi
+			i++;//Nhảy - Tránh lặp vô tận
+		}
+	}
+}
+//-------
+void xoa_trung(int a[], int &n)
+{
+	for (int i = 0; i < n - 1; i++)
+	{
+		for (int j = i + 1; j < n; j++)//Quét tất cả pt còn lại của i
+		{
+			if (a[i] == a[j])
+			{
+				xoa(a, n, j);//Có thay đổi
+				j--;//Lùi - tránh sót pt
+			}
+		}
+	}
+}
+void thong_ke_tan_suat(int a[], int n)
+{
+	for (int i = 0; i < n; i++)//Cuối
+	{
+		int dem = 1;
+		for (int j = i + 1; j < n; j++)
+		{
+			if (a[i] == a[j])
+			{
+				dem++;
+			}
+		}
+		cout << "Pt " << a[i] << " lap " << dem << " lan." << endl;
+	}
+}
